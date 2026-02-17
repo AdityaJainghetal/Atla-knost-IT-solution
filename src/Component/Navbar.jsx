@@ -500,6 +500,253 @@
 
 // export default Navbar;
 
+// import React, { useState } from "react";
+// import { NavLink } from "react-router-dom";
+// import { Menu, X, ChevronDown } from "lucide-react";
+// import ATLAknots from "./Mobile/img/ITLogo.png"; // adjust path if needed
+
+// const navItems = [
+//   { name: "Home", path: "/" },
+//   {
+//     name: "About",
+//     path: "/about",
+//     hasDropdown: true,
+//     dropdownItems: [{ name: "Recent Work", path: "/recentwork" }],
+//   },
+//   {
+//     name: "Service",
+//     path: "/service",
+//     hasDropdown: true,
+//     dropdownItems: [
+//       { name: "Documentation", path: "/resources/documentation" },
+//       { name: "API Reference", path: "/resources/api" },
+//       { name: "Community Forum", path: "/resources/forum" },
+//     ],
+//   },
+//   { name: "Careers", path: "/careers" },
+//   { name: "Technology", path: "/technology" },
+//   { name: "Tech News", path: "/technews" },
+//   { name: "Contact", path: "/contact" },
+// ];
+
+// export default function Navbar() {
+//   const [isOpen, setIsOpen] = useState(false);           // mobile menu open/close
+//   const [openDropdown, setOpenDropdown] = useState(null); // which mobile dropdown is open
+
+//   const toggleMenu = () => setIsOpen(!isOpen);
+
+//   const closeAll = () => {
+//     setIsOpen(false);
+//     setOpenDropdown(null);
+//   };
+
+//   const toggleMobileDropdown = (name) => {
+//     setOpenDropdown((prev) => (prev === name ? null : name));
+//   };
+
+//   return (
+//     <nav className="bg-black/85 backdrop-blur-lg border-b border-gray-800/60 sticky top-0 z-50">
+//       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+//         <div className="flex h-16 sm:h-20 items-center justify-between">
+
+//           {/* ─── LOGO ──────────────────────────────────────── */}
+//           <div className="flex-shrink-0">
+//             <NavLink to="/" onClick={closeAll}>
+//               <img
+//                 src={ATLAknots}
+//                 alt="ATLAKnots Logo"
+//                 className="h-24 w-120 md:h-16 md:w-46 lg:h-40 mt-5  lg:w-50 object-contain"
+//               />
+//             </NavLink>
+//           </div>
+
+//           {/* ─── DESKTOP MENU ──────────────────────────────── */}
+//           <div className="hidden md:flex md:items-center md:gap-x-1.5 lg:gap-x-2">
+//             {navItems.map((item) =>
+//               item.hasDropdown ? (
+//                 <div key={item.name} className="relative group">
+//                   <button
+//                     type="button"
+//                     className={`
+//                       flex items-center gap-1.5 px-3 py-2 lg:px-4 lg:py-2.5 
+//                       text-sm lg:text-base font-medium rounded-lg transition-all duration-200
+//                       ${
+//                         window.location.pathname.startsWith(item.path)
+//                           ? "bg-red-950/60 text-red-400 border border-red-800/60 shadow-sm"
+//                           : "text-gray-200 hover:text-red-400 hover:bg-red-950/40 border border-transparent hover:border-red-800/50"
+//                       }
+//                     `}
+//                   >
+//                     {item.name}
+//                     <ChevronDown size={16} className="transition-transform group-hover:rotate-180" />
+//                   </button>
+
+//                   {/* Desktop dropdown */}
+//                   <div
+//                     className={`
+//                       absolute left-0 top-full mt-2 w-64 min-w-[180px]
+//                       bg-gradient-to-b from-gray-950 to-black border border-gray-800/70 
+//                       rounded-xl shadow-2xl shadow-black/60 py-2 opacity-0 invisible translate-y-2 scale-95
+//                       group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:scale-100
+//                       transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto
+//                     `}
+//                   >
+//                     {item.dropdownItems.map((sub) => (
+//                       <NavLink
+//                         key={sub.path}
+//                         to={sub.path}
+//                         onClick={closeAll}
+//                         className={({ isActive }) =>
+//                           `block px-5 py-2.5 text-sm font-medium transition-colors ${
+//                             isActive
+//                               ? "bg-red-900/50 text-red-300 border-l-4 border-red-600"
+//                               : "text-gray-200 hover:bg-red-950/60 hover:text-red-300"
+//                           }`
+//                         }
+//                       >
+//                         {sub.name}
+//                       </NavLink>
+//                     ))}
+//                   </div>
+//                 </div>
+//               ) : (
+//                 <NavLink
+//                   key={item.path}
+//                   to={item.path}
+//                   onClick={closeAll}
+//                   className={({ isActive }) =>
+//                     `px-3 py-2 lg:px-4 lg:py-2.5 text-sm lg:text-base font-medium rounded-lg transition-all duration-200 ${
+//                       isActive
+//                         ? "bg-red-950/60 text-red-400 border border-red-800/60 shadow-sm"
+//                         : "text-gray-200 hover:text-red-400 hover:bg-red-950/40 border border-transparent hover:border-red-800/50"
+//                     }`
+//                   }
+//                 >
+//                   {item.name}
+//                 </NavLink>
+//               )
+//             )}
+//           </div>
+
+//           {/* ─── MOBILE HAMBURGER ──────────────────────────── */}
+//           <div className="md:hidden">
+//             <button
+//               onClick={toggleMenu}
+//               className="
+//                 p-2 -mr-2 rounded-lg 
+//                 text-white hover:text-red-400 
+//                 hover:bg-red-950/50 active:bg-red-950/70 
+//                 transition-colors duration-200
+//               "
+//               aria-expanded={isOpen}
+//               aria-label={isOpen ? "Close menu" : "Open menu"}
+//             >
+//               {isOpen ? (
+//                 <X size={28} strokeWidth={2.2} />
+//               ) : (
+//                 <Menu size={28} strokeWidth={2.2} />
+//               )}
+//             </button>
+//           </div>
+
+//         </div>
+//       </div>
+
+//       {/* ─── MOBILE MENU PANEL ─────────────────────────── */}
+//       <div
+//         className={`
+//           md:hidden overflow-hidden transition-all duration-300 ease-in-out
+//           ${isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"}
+//         `}
+//       >
+//         <div className="px-4 py-5 bg-black/95 border-t border-gray-800/60 space-y-1.5">
+//           {navItems.map((item) =>
+//             item.hasDropdown ? (
+//               <div key={item.name} className="space-y-1">
+//                 <div className="flex items-center justify-between">
+//                   <NavLink
+//                     to={item.path}
+//                     onClick={closeAll}
+//                     className={({ isActive }) =>
+//                       `flex-1 px-4 py-3.5 rounded-lg text-base font-medium transition border-l-4 ${
+//                         isActive || window.location.pathname.startsWith(item.path)
+//                           ? "bg-red-950/60 text-red-400 border-red-600"
+//                           : "text-gray-200 hover:text-red-400 hover:bg-red-950/40 border-transparent"
+//                       }`
+//                     }
+//                   >
+//                     {item.name}
+//                   </NavLink>
+
+//                   <button
+//                     type="button"
+//                     onClick={(e) => {
+//                       e.preventDefault();
+//                       toggleMobileDropdown(item.name);
+//                     }}
+//                     className="p-3.5 text-white hover:text-red-400 transition-colors"
+//                     aria-label={`Toggle ${item.name} submenu`}
+//                   >
+//                     <ChevronDown
+//                       size={22}
+//                       className={`transition-transform duration-300 ${
+//                         openDropdown === item.name ? "rotate-180" : ""
+//                       }`}
+//                     />
+//                   </button>
+//                 </div>
+
+//                 <div
+//                   className={`
+//                     overflow-hidden transition-all duration-300 ease-in-out
+//                     ${openDropdown === item.name ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
+//                   `}
+//                 >
+//                   <div className="pl-6 pt-1 pb-3 space-y-1">
+//                     {item.dropdownItems.map((sub) => (
+//                       <NavLink
+//                         key={sub.path}
+//                         to={sub.path}
+//                         onClick={closeAll}
+//                         className={({ isActive }) =>
+//                           `block px-5 py-3 rounded-lg text-base font-medium transition border-l-4 ${
+//                             isActive
+//                               ? "bg-red-950/60 text-red-300 border-red-600"
+//                               : "text-gray-300 hover:bg-red-950/50 hover:text-red-300 border-transparent"
+//                           }`
+//                         }
+//                       >
+//                         {sub.name}
+//                       </NavLink>
+//                     ))}
+//                   </div>
+//                 </div>
+//               </div>
+//             ) : (
+//               <NavLink
+//                 key={item.path}
+//                 to={item.path}
+//                 onClick={closeAll}
+//                 className={({ isActive }) =>
+//                   `block px-4 py-3.5 rounded-lg text-base font-medium transition border-l-4 ${
+//                     isActive
+//                       ? "bg-red-950/60 text-red-400 border-red-600"
+//                       : "text-gray-200 hover:text-red-400 hover:bg-red-950/40 border-transparent"
+//                   }`
+//                 }
+//               >
+//                 {item.name}
+//               </NavLink>
+//             )
+//           )}
+
+        
+//         </div>
+//       </div>
+//     </nav>
+//   );
+// }
+
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -552,11 +799,11 @@ export default function Navbar() {
           {/* ─── LOGO ──────────────────────────────────────── */}
           <div className="flex-shrink-0">
             <NavLink to="/" onClick={closeAll}>
-              <img
+                 <img
                 src={ATLAknots}
                 alt="ATLAKnots Logo"
-                className="h-24 w-120 md:h-16 md:w-46 lg:h-40 mt-5  lg:w-50 object-contain"
-              />
+                className="h-24 w-12 md:h-16 md:w-46 lg:h-40 mt-5  lg:w-50 object-contain"
+             />
             </NavLink>
           </div>
 
@@ -740,7 +987,15 @@ export default function Navbar() {
             )
           )}
 
-        
+          {/* Auth buttons (optional) */}
+          <div className="pt-6 mt-4 border-t border-gray-800/50 flex flex-col gap-4 px-2">
+            <button className="py-3.5 px-6 border border-gray-700 rounded-lg text-gray-200 hover:bg-gray-800/60 transition">
+              Login
+            </button>
+            <button className="py-3.5 px-6 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg shadow-md hover:shadow-red-900/50 transition">
+              Get Started
+            </button>
+          </div>
         </div>
       </div>
     </nav>

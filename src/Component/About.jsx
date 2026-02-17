@@ -796,7 +796,7 @@ export default function About() {
                       Chief Technical Officer
                     </p>
                     <p className="text-gray-400 text-sm mb-3">
-                      10+ Years of Experience
+                      5+ Years of Experience
                     </p>
                     <p className="text-gray-300 text-sm leading-relaxed">
                       Leading technical innovation, architecture, and

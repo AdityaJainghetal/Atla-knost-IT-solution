@@ -243,7 +243,7 @@ export default function About() {
 
     try {
       await axios.post(
-        "https://atla-knots-solution-admin-1.onrender.com/query/create",
+        "https://bitzo-server-1.onrender.com/query/create",
         formData,
       );
 
@@ -271,7 +271,7 @@ export default function About() {
     {
       text: "The website exceeded our expectations. The design is clean, professional, and helped us get more leads. Highly recommended!”",
       author: "Dabeer",
-     
+
       rating: 5,
     },
     {
@@ -661,122 +661,153 @@ export default function About() {
           </div>
 
           {/* ==================== MEET OUR LEADERSHIP TEAM SECTION ==================== */}
-      <section className="relative py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-950">
-  <div className="max-w-7xl mx-auto">
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={staggerContainer}
-      className="text-center mb-12"
-    >
-      <h2 className="text-5xl md:text-7xl font-black mb-4">
-        Meet Our <span className="text-red-500">Leadership</span>
-      </h2>
-      <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-        The visionaries driving ATLA Knots toward innovation and excellence
-      </p>
-    </motion.div>
+          <section className="relative py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-950">
+            <div className="max-w-7xl mx-auto">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={staggerContainer}
+                className="text-center mb-12"
+              >
+                <h2 className="text-5xl md:text-7xl font-black mb-4">
+                  Meet Our <span className="text-red-500">Leadership</span>
+                </h2>
+                <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+                  The visionaries driving ATLA Knots toward innovation and
+                  excellence
+                </p>
+              </motion.div>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      {/* Leader 1 - Founder */}
-      <motion.div
-        variants={scaleIn}
-        whileHover={{ scale: 1.05, y: -10 }}
-        className="bg-gray-900/60 backdrop-blur-sm border border-red-900/30 rounded-2xl overflow-hidden shadow-xl shadow-red-950/30 transition-all duration-300"
-      >
-        <div className="relative">
-          <img
-            src={FounderImg}
-            alt="Rakesh Nagar - Founder"
-            className="w-full h-64 object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
-        </div>
-        <div className="p-6 text-center">
-          <h3 className="text-2xl font-bold mb-1 text-white">Rakesh Nagar</h3>
-          <p className="text-red-400 font-semibold mb-2">Founder</p>
-          <p className="text-gray-400 text-sm mb-3">15+ Years of Experience</p>
-          <p className="text-gray-300 text-sm">
-            Visionary leader with over 15 years of experience in IT and digital transformation, steering the company's strategic direction.
-          </p>
-        </div>
-      </motion.div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {/* Leader 1 - Founder */}
+                <motion.div
+                  variants={scaleIn}
+                  whileHover={{ scale: 1.05, y: -10 }}
+                  className="bg-gray-900/60 backdrop-blur-sm border border-red-900/30 rounded-2xl overflow-hidden shadow-xl shadow-red-950/30 transition-all duration-300"
+                >
+                  <div className="relative">
+                    <img
+                      src={FounderImg}
+                      alt="Rakesh Nagar - Founder"
+                      className="w-full h-64 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                  </div>
+                  <div className="p-6 text-center">
+                    <h3 className="text-2xl font-bold mb-1 text-white">
+                      Rakesh Nagar
+                    </h3>
+                    <p className="text-red-400 font-semibold mb-2">Founder</p>
+                    <p className="text-gray-400 text-sm mb-3">
+                      15+ Years of Experience
+                    </p>
+                    <p className="text-gray-300 text-sm">
+                      Visionary leader with over 15 years of experience in IT
+                      and digital transformation, steering the company's
+                      strategic direction.
+                    </p>
+                  </div>
+                </motion.div>
 
-      {/* Leader 2 - Managing Director */}
-      <motion.div
-        variants={scaleIn}
-        whileHover={{ scale: 1.05, y: -10 }}
-        className="bg-gray-900/60 backdrop-blur-sm border border-red-900/30 rounded-2xl overflow-hidden shadow-xl shadow-red-950/30 transition-all duration-300"
-      >
-        <div className="relative">
-          <img
-            src={MdImg}
-            alt="Aley Nabi - Managing Director"
-            className="w-full h-64 object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
-        </div>
-        <div className="p-6 text-center">
-          <h3 className="text-2xl font-bold mb-1 text-white">Aley Nabi</h3>
-          <p className="text-red-400 font-semibold mb-2">Managing Director</p>
-          <p className="text-gray-400 text-sm mb-3">10+ Years of Experience</p>
-          <p className="text-gray-300 text-sm">
-            Expert in operational excellence and client relations, ensuring seamless delivery of our services while fostering strong partnerships.
-          </p>
-        </div>
-      </motion.div>
+                {/* Leader 2 - Managing Director */}
+                <motion.div
+                  variants={scaleIn}
+                  whileHover={{ scale: 1.05, y: -10 }}
+                  className="bg-gray-900/60 backdrop-blur-sm border border-red-900/30 rounded-2xl overflow-hidden shadow-xl shadow-red-950/30 transition-all duration-300"
+                >
+                  <div className="relative">
+                    <img
+                      src={MdImg}
+                      alt="Aley Nabi - Managing Director"
+                      className="w-full h-64 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                  </div>
+                  <div className="p-6 text-center">
+                    <h3 className="text-2xl font-bold mb-1 text-white">
+                      Aley Nabi
+                    </h3>
+                    <p className="text-red-400 font-semibold mb-2">
+                      Managing Director
+                    </p>
+                    <p className="text-gray-400 text-sm mb-3">
+                      10+ Years of Experience
+                    </p>
+                    <p className="text-gray-300 text-sm">
+                      Expert in operational excellence and client relations,
+                      ensuring seamless delivery of our services while fostering
+                      strong partnerships.
+                    </p>
+                  </div>
+                </motion.div>
 
-      {/* Leader 3 - Chief Executive Officer */}
-      <motion.div
-        variants={scaleIn}
-        whileHover={{ scale: 1.05, y: -10 }}
-        className="bg-gray-900/60 backdrop-blur-sm border border-red-900/30 rounded-2xl overflow-hidden shadow-xl shadow-red-950/30 transition-all duration-300"
-      >
-        <div className="relative">
-          <img
-            src={CeoImg}
-            alt="Ghulam Haider - Chief Executive Officer"
-            className="w-full h-64 object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
-        </div>
-        <div className="p-6 text-center">
-          <h3 className="text-2xl font-bold mb-1 text-white">Ghulam Haider</h3>
-          <p className="text-red-400 font-semibold mb-2">Chief Executive Officer</p>
-          <p className="text-gray-400 text-sm mb-3">10+ Years of Experience</p>
-          <p className="text-gray-300 text-sm leading-relaxed">
-            Driving strategic growth, innovation, and strong client partnerships while shaping the company’s long-term vision and success.
-          </p>
-        </div>
-      </motion.div>
+                {/* Leader 3 - Chief Executive Officer */}
+                <motion.div
+                  variants={scaleIn}
+                  whileHover={{ scale: 1.05, y: -10 }}
+                  className="bg-gray-900/60 backdrop-blur-sm border border-red-900/30 rounded-2xl overflow-hidden shadow-xl shadow-red-950/30 transition-all duration-300"
+                >
+                  <div className="relative">
+                    <img
+                      src={CeoImg}
+                      alt="Ghulam Haider - Chief Executive Officer"
+                      className="w-full h-64 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                  </div>
+                  <div className="p-6 text-center">
+                    <h3 className="text-2xl font-bold mb-1 text-white">
+                      Ghulam Haider
+                    </h3>
+                    <p className="text-red-400 font-semibold mb-2">
+                      Chief Executive Officer
+                    </p>
+                    <p className="text-gray-400 text-sm mb-3">
+                      10+ Years of Experience
+                    </p>
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      Driving strategic growth, innovation, and strong client
+                      partnerships while shaping the company’s long-term vision
+                      and success.
+                    </p>
+                  </div>
+                </motion.div>
 
-      {/* Leader 4 - Chief Technical Officer */}
-      <motion.div
-        variants={scaleIn}
-        whileHover={{ scale: 1.05, y: -10 }}
-        className="bg-gray-900/60 backdrop-blur-sm border border-red-900/30 rounded-2xl overflow-hidden shadow-xl shadow-red-950/30 transition-all duration-300"
-      >
-        <div className="relative">
-          <img
-            src={CtoImg} // ← Change this to your actual CTO image variable (create if needed)
-            alt="Sameer Uddin - Chief Technical Officer"
-            className="w-full h-64 object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
-        </div>
-        <div className="p-6 text-center">
-          <h3 className="text-2xl font-bold mb-1 text-white">Azhar Uddin</h3>
-          <p className="text-red-400 font-semibold mb-2">Chief Technical Officer</p>
-          <p className="text-gray-400 text-sm mb-3">10+ Years of Experience</p>
-          <p className="text-gray-300 text-sm leading-relaxed">
-            Leading technical innovation, architecture, and engineering teams to deliver cutting-edge solutions and maintain technological excellence.
-          </p>
-        </div>
-      </motion.div>
-    </div>
-  </div>
-</section>
+                {/* Leader 4 - Chief Technical Officer */}
+                <motion.div
+                  variants={scaleIn}
+                  whileHover={{ scale: 1.05, y: -10 }}
+                  className="bg-gray-900/60 backdrop-blur-sm border border-red-900/30 rounded-2xl overflow-hidden shadow-xl shadow-red-950/30 transition-all duration-300"
+                >
+                  <div className="relative">
+                    <img
+                      src={CtoImg} // ← Change this to your actual CTO image variable (create if needed)
+                      alt="Sameer Uddin - Chief Technical Officer"
+                      className="w-full h-64 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                  </div>
+                  <div className="p-6 text-center">
+                    <h3 className="text-2xl font-bold mb-1 text-white">
+                      Azhar Uddin
+                    </h3>
+                    <p className="text-red-400 font-semibold mb-2">
+                      Chief Technical Officer
+                    </p>
+                    <p className="text-gray-400 text-sm mb-3">
+                      10+ Years of Experience
+                    </p>
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      Leading technical innovation, architecture, and
+                      engineering teams to deliver cutting-edge solutions and
+                      maintain technological excellence.
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </section>
 
           {/* Testimonials */}
           <motion.div

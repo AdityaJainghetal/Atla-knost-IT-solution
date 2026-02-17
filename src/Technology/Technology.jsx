@@ -46,7 +46,7 @@ const Technology = () => {
     const fetchCategories = async () => {
       try {
         const { data: result } = await axios.get(
-          "http://localhost:8000/api/technology/category",
+          "https://bitzo-server-1.onrender.com/api/technology/category",
           { timeout: 10000 },
         );
 
@@ -72,7 +72,7 @@ const Technology = () => {
         setLoading(true);
         setError(null);
 
-        let url = "http://localhost:8000/api/technology/product";
+        let url = "https://bitzo-server-1.onrender.com/api/technology/product";
         if (selectedCategory !== "All" && selectedCategory?._id) {
           url += `?categoryId=${selectedCategory._id}`;
         }

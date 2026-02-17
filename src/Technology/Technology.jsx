@@ -46,7 +46,7 @@ const Technology = () => {
     const fetchCategories = async () => {
       try {
         const { data: result } = await axios.get(
-          "https://bitzo-server-1.onrender.com/api/technology/category",
+          "https://atla-knots-solution-admin-2.onrender.com/api/technology/category",
           { timeout: 10000 },
         );
 
@@ -72,7 +72,8 @@ const Technology = () => {
         setLoading(true);
         setError(null);
 
-        let url = "https://bitzo-server-1.onrender.com/api/technology/product";
+        let url =
+          "https://atla-knots-solution-admin-2.onrender.com/api/technology/product";
         if (selectedCategory !== "All" && selectedCategory?._id) {
           url += `?categoryId=${selectedCategory._id}`;
         }

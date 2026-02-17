@@ -16,7 +16,7 @@ const TechNews = () => {
 
         // Using axios — cleaner syntax, auto JSON, better errors
         const { data: result } = await axios.get(
-          "https://bitzo-server-1.onrender.com/tech",
+          "https://atla-knots-solution-admin-2.onrender.com/tech",
           {
             headers: {
               "Content-Type": "application/json",

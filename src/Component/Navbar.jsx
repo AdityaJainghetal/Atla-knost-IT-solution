@@ -1735,14 +1735,7 @@ export default function Navbar() {
           })}
 
           {/* Auth buttons */}
-          <div className="pt-6 mt-4 border-t border-gray-800/50 flex flex-col gap-4 px-2">
-            <button className="py-3.5 px-6 border border-gray-700 rounded-lg text-gray-200 hover:bg-gray-800/60 transition">
-              Login
-            </button>
-            <button className="py-3.5 px-6 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg shadow-md hover:shadow-red-900/50 transition">
-              Get Started
-            </button>
-          </div>
+        
         </div>
       </div>
     </nav>

@@ -469,7 +469,7 @@ import img5 from "../Mobile/img/generatedimage4.jpg";
 import img6 from "../Mobile/img/newimage2.jpg";
 import img7 from "../Mobile/img/recentiamge2.jpg";
 import img8 from "../Mobile/img/newimage3.jpg";
-import img9 from "../Mobile/img/recentimagenew2.jpg";
+import img9 from "../Mobile/img/recentimage2.jpg";
 
 const portfolioItems = [
   {

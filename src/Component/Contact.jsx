@@ -22,6 +22,7 @@ const particlesOptions = {
       repulse: { distance: 120, duration: 0.4 },
     },
   },
+  
   particles: {
     color: { value: ["#ef4444", "#f87171", "#dc2626"] },
     links: {

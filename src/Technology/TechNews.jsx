@@ -17,7 +17,6 @@ const TechNews = () => {
         // Using axios — cleaner syntax, auto JSON, better errors
         const { data: result } = await axios.get(
           "https://atla-knots-solution-admin-2.onrender.com/tech",
-      
         );
 
         let items = result.data || [];

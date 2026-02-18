@@ -1,5 +1,4 @@
 
-
 // import React, { Suspense, useCallback, useMemo, useRef, useState } from "react";
 // import { motion } from "framer-motion";
 // import Particles from "@tsparticles/react";
@@ -15,9 +14,9 @@
 //   PerspectiveCamera,
 // } from "@react-three/drei";
 // import * as THREE from "three";
-// import { ArrowRight } from "lucide-react";
+// import { ArrowRight, ExternalLink } from "lucide-react";
 
-// // Import your images
+// // Images
 // import img1 from "../Mobile/img/recentnewimage.png";
 // import img2 from "../Mobile/img/recent4.jpg";
 // import img3 from "../Mobile/img/Generatedimage.png";
@@ -26,27 +25,27 @@
 // import img6 from "../Mobile/img/recent8.jpg";
 // import img7 from "../Mobile/img/generatedimage3.jpg";
 // import img8 from "../Mobile/img/recent10.jpg";
-// import img9 from "../Mobile/img/recentimage.jpg";
+// import img9 from "../Mobile/img/recentimagenew2.jpg";
 
 // const AnimatedSphere = ({ position, color }) => {
 //   const meshRef = useRef();
 
 //   useFrame((state) => {
 //     if (meshRef.current) {
-//       meshRef.current.rotation.x = state.clock.getElapsedTime() * 0.2;
-//       meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.3;
+//       meshRef.current.rotation.x = state.clock.getElapsedTime() * 0.18;
+//       meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.25;
 //     }
 //   });
 
 //   return (
-//     <Float speed={2} rotationIntensity={1} floatIntensity={2}>
-//       <Sphere ref={meshRef} args={[1, 64, 64]} position={position}>
+//     <Float speed={1.8} rotationIntensity={0.8} floatIntensity={1.5}>
+//       <Sphere ref={meshRef} args={[1.1, 64, 64]} position={position}>
 //         <MeshDistortMaterial
 //           color={color}
-//           distort={0.4}
-//           speed={2}
-//           roughness={0.2}
-//           metalness={0.8}
+//           distort={0.35}
+//           speed={1.8}
+//           roughness={0.25}
+//           metalness={0.85}
 //         />
 //       </Sphere>
 //     </Float>
@@ -129,29 +128,22 @@
 // const Scene3D = () => {
 //   return (
 //     <>
-//       <PerspectiveCamera makeDefault position={[0, 0, 8]} />
+//       <PerspectiveCamera makeDefault position={[0, 0, 9]} />
 //       <OrbitControls
 //         enableZoom={false}
 //         enablePan={false}
 //         autoRotate
-//         autoRotateSpeed={0.5}
+//         autoRotateSpeed={0.4}
 //         maxPolarAngle={Math.PI / 2}
 //         minPolarAngle={Math.PI / 2}
 //       />
-//       <ambientLight intensity={0.5} />
-//       <pointLight position={[10, 10, 10]} intensity={1} color="#dc2626" />
-//       <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ef4444" />
-//       <spotLight
-//         position={[0, 5, 0]}
-//         angle={0.3}
-//         penumbra={1}
-//         intensity={1}
-//         color="#f87171"
-//       />
+//       <ambientLight intensity={0.6} />
+//       <pointLight position={[10, 10, 10]} intensity={1.2} color="#dc2626" />
+//       <pointLight position={[-10, -10, -10]} intensity={0.7} color="#ef4444" />
 //       <FloatingParticles3D />
-//       <AnimatedSphere position={[-3, 2, -2]} color="#dc2626" />
-//       <AnimatedSphere position={[3, -2, -1]} color="#ef4444" />
-//       <AnimatedSphere position={[0, 3, 1]} color="#f87171" />
+//       <AnimatedSphere position={[-3.5, 2.5, -2]} color="#dc2626" />
+//       <AnimatedSphere position={[3.5, -2.5, -1.5]} color="#ef4444" />
+//       <AnimatedSphere position={[0, 3.2, 1.2]} color="#f87171" />
 //       <RotatingCubes />
 //       <Environment preset="city" />
 //     </>
@@ -205,7 +197,7 @@
 
 // const staggerContainer = {
 //   hidden: {},
-//   visible: { transition: { staggerChildren: 0.15 } },
+//   visible: { transition: { staggerChildren: 0.14 } },
 // };
 
 // const portfolioItems = [
@@ -214,79 +206,69 @@
 //     title: "Parineek",
 //     categories: ["Consultancy", "Global Business", "Industrial", "UI/UX"],
 //     image: img1,
-//     bgColor: "#1e40af",
+//     link: "https://parineek.com", // ← Replace with real link
 //   },
 //   {
 //     id: "1554",
 //     title: "Nova Quinta",
 //     categories: ["Consultancy", "Corporate", "Global Business", "UI/UX"],
 //     image: img2,
-//     bgColor: "#1e3a8a",
+//     link: "https://novaquinta.com",
 //   },
 //   {
 //     id: "1541",
 //     title: "FirstMeridian",
 //     categories: ["Consultancy", "Resourcing"],
 //     image: img3,
-//     bgColor: "#1d4ed8",
+//     link: "https://firstmeridian.com",
 //   },
 //   {
 //     id: "1533",
 //     title: "AIOne Health",
-//     categories: [
-//       "Consultancy",
-//       "Corporate",
-//       "Medical",
-//       "SAAS",
-//       "Software",
-//       "UI/UX",
-//     ],
+//     categories: ["Consultancy", "Corporate", "Medical", "SAAS", "Software", "UI/UX"],
 //     image: img6,
-//     bgColor: "#2563eb",
+//     link: "https://aionehealth.com",
 //   },
 //   {
 //     id: "1522",
 //     title: "Clanbridge",
 //     categories: ["Hospitality", "Lifestyle", "Real Estate", "UI/UX"],
 //     image: img4,
-//     bgColor: "#3b82f6",
+//     link: "https://clanbridge.com",
 //   },
 //   {
 //     id: "1477",
 //     title: "Acutok",
 //     categories: ["Consultancy", "SAAS", "Software", "UI/UX"],
 //     image: img5,
-//     bgColor: "#1e40af",
+//     link: "https://acutok.com",
 //   },
 //   {
 //     id: "1473",
 //     title: "MentorPOS",
 //     categories: ["Consultancy", "SAAS", "Software", "UI/UX"],
 //     image: img8,
-//     bgColor: "#1d4ed8",
+//     link: "https://mentorpos.com",
 //   },
 //   {
 //     id: "1456",
 //     title: "Alankaram",
 //     categories: ["Ecommerce", "Furniture", "Lifestyle"],
 //     image: img7,
-//     bgColor: "#2563eb",
+//     link: "https://alankaram.in",
 //   },
 //   {
 //     id: "1517",
 //     title: "Aaalay",
 //     categories: ["Consultancy", "SAAS", "Software", "UI/UX"],
 //     image: img9,
-//     bgColor: "#3b82f6",
+//     link: "https://aaalay.com",
 //   },
 // ];
 
-// const allCategories = [
-//   "All",
-//   ...new Set(portfolioItems.flatMap((item) => item.categories)),
-// ];
+// const allCategories = ["All", ...new Set(portfolioItems.flatMap((item) => item.categories))];
 
-// const RecentWork = () => {
+// export default function RecentWork() {
 //   const particlesInit = useCallback(async (engine) => {
 //     await loadSlim(engine);
 //   }, []);
@@ -295,19 +277,14 @@
 
 //   const filteredItems = useMemo(() => {
 //     if (activeFilter === "All") return portfolioItems;
-//     return portfolioItems.filter((item) =>
-//       item.categories.includes(activeFilter)
-//     );
+//     return portfolioItems.filter((item) => item.categories.includes(activeFilter));
 //   }, [activeFilter]);
 
 //   return (
 //     <div className="min-h-screen bg-black text-white relative overflow-x-hidden">
-//       {/* Background Effects */}
-//       <div
-//         className="absolute inset-0 z-0"
-//         style={{ height: "calc(100vh + 3000px)" }}
-//       >
-//         <div className="absolute inset-0 z-0">
+//       {/* Background layers */}
+//       <div className="absolute inset-0 z-0" style={{ height: "calc(100vh + 3400px)" }}>
+//         <div className="absolute inset-0">
 //           <Canvas>
 //             <Suspense fallback={null}>
 //               <Scene3D />
@@ -315,26 +292,21 @@
 //           </Canvas>
 //         </div>
 
-//         <div className="absolute inset-0 z-0 pointer-events-none">
-//           <Particles
-//             id="tsparticles-work"
-//             init={particlesInit}
-//             options={particlesOptions}
-//           />
+//         <div className="absolute inset-0 pointer-events-none">
+//           <Particles id="tsparticles-work" init={particlesInit} options={particlesOptions} />
 //         </div>
 
 //         <div className="absolute inset-0 pointer-events-none z-0">
-//           <div className="absolute top-20 right-0 w-96 h-96 bg-red-600/20 rounded-full blur-3xl animate-pulse" />
-//           <div className="absolute bottom-40 left-0 w-96 h-96 bg-red-800/15 rounded-full blur-3xl animate-pulse delay-1000" />
-//           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-900/10 rounded-full blur-3xl" />
+//           <div className="absolute top-16 right-4 md:right-20 w-80 h-80 md:w-[500px] md:h-[500px] bg-red-600/20 rounded-full blur-3xl " />
+//           <div className="absolute bottom-20 left-4 md:left-24 w-80 h-80 md:w-[480px] md:h-[480px] bg-rose-800/15 rounded-full blur-3xl  delay-1000" />
 //         </div>
 
-//         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80 z-10 pointer-events-none" />
+//         <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/65 to-black/85 z-10 pointer-events-none" />
 //       </div>
 
 //       {/* Main Content */}
-//       <div className="relative z-20 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-16 md:py-20 lg:py-24">
-//         {/* Hero */}
+//       <div className="relative z-20 max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 pt-16 md:pt-24 lg:pt-28 pb-20">
+//         {/* Hero Section */}
 //         <motion.div
 //           initial="hidden"
 //           animate="visible"
@@ -343,712 +315,371 @@
 //         >
 //           <motion.h1
 //             variants={fadeInUp}
-//             className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 tracking-tight"
+//             className="text-5xl sm:text-6xl lg:text-7xl font-black mb-5 tracking-tight leading-tight"
 //           >
 //             OUR{" "}
-//             <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-rose-500 to-pink-500">
+//             <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-rose-500 to-pink-600">
 //               RECENT WORK
 //             </span>
 //           </motion.h1>
-
 //           <motion.p
 //             variants={fadeInUp}
 //             className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
 //           >
-//             Delivering exceptional digital solutions across industries — from startups to enterprises.
+//             Crafting high-impact digital experiences that drive growth across industries.
 //           </motion.p>
-
-//           <motion.div
-//             variants={fadeInUp}
-//             className="mt-8 h-1.5 w-40 bg-gradient-to-r from-red-600 to-rose-600 mx-auto rounded-full"
-//           />
 //         </motion.div>
 
-//         {/* Filters */}
-//         <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-10 md:mb-12">
-//           {allCategories.map((category) => (
+//         {/* Filter Buttons */}
+//         <div className="flex flex-wrap justify-center gap-2.5 md:gap-4 mb-12 md:mb-16">
+//           {allCategories.map((cat) => (
 //             <button
-//               key={category}
-//               onClick={() => setActiveFilter(category)}
+//               key={cat}
+//               onClick={() => setActiveFilter(cat)}
 //               className={`
-//                 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold uppercase tracking-wide
-//                 transition-all duration-300 border
+//                 px-5 py-2.5 rounded-full text-sm md:text-base font-semibold uppercase tracking-wider
+//                 border transition-all duration-300
 //                 ${
-//                   activeFilter === category
-//                     ? "bg-red-600/90 text-white border-red-500 shadow-lg shadow-red-900/40"
-//                     : "bg-white/5 text-gray-200 border-gray-700 hover:bg-white/10 hover:border-gray-500"
+//                   activeFilter === cat
+//                     ? "bg-red-600/90 border-red-500 text-white shadow-lg shadow-red-900/50"
+//                     : "bg-white/5 border-gray-700 text-gray-200 hover:bg-white/10 hover:border-gray-500"
 //                 }
 //               `}
 //             >
-//               {category}
+//               {cat}
 //             </button>
 //           ))}
 //         </div>
 
-//         {/* Improved Description Section */}
-//         <motion.div
-//           initial={{ opacity: 0, y: 30 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.9, delay: 0.3 }}
-//           className="mb-12 md:mb-16 text-center"
-//         >
-//           <div
-//             className="
-//               inline-block max-w-4xl mx-auto
-//               p-8 md:p-10 lg:p-12
-//               bg-gradient-to-br from-gray-900/50 via-gray-800/40 to-gray-900/50
-//               backdrop-blur-xl backdrop-saturate-150
-//               border border-white/5 border-gray-700/30
-//               rounded-2xl md:rounded-3xl
-//               shadow-2xl shadow-black/60
-//               relative overflow-hidden
-//             "
-//           >
-//             <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-500/50 via-indigo-500/50 to-purple-500/50 opacity-70" />
-
-//             <p className="text-base sm:text-lg md:text-xl text-gray-300/90 leading-relaxed max-w-3xl mx-auto font-light">
-//               We craft <span className="font-medium text-white">modern, high-performance</span> website designed to improve brand visibility and generate qualified leads.
-// Optimized for SEO and structured for better conversions across all devices.
-// Built with a focus on speed, responsiveness, and user experience.
-// A modern, high-performance business 
-//             </p>
-//           </div>
-//         </motion.div>
-
-//         {/* Masonry Grid - NO GAPS + WHITE HOVER */}
-//         <div className="columns-1 sm:columns-2 lg:columns-3 gap-0 space-y-0">
+//         {/* Portfolio Grid - adjusted spacing */}
+//         <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 md:gap-6 pb-0 mb-0">
 //           {filteredItems.length === 0 ? (
-//             <div className="col-span-full text-center text-gray-400 text-xl py-12">
-//               No projects found in this category.
+//             <div className="col-span-full text-center py-20 text-gray-400 text-xl">
+//               No projects match this filter.
 //             </div>
 //           ) : (
 //             filteredItems.map((item) => (
-//               <motion.div
+//               <motion.a
 //                 key={item.id}
-//                 initial={{ opacity: 0, y: 30 }}
+//                 href={item.link}
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 initial={{ opacity: 0, y: 40 }}
 //                 whileInView={{ opacity: 1, y: 0 }}
-//                 viewport={{ once: true }}
-//                 transition={{ duration: 0.7, ease: "easeOut" }}
-//                 className={`
-//                   group relative overflow-hidden
-//                   bg-gray-900/30 backdrop-blur-sm
-//                   border border-gray-800/50
-//                   shadow-2xl shadow-black/40
-//                   transition-all duration-500
-//                   hover:shadow-blue-900/40 hover:shadow-2xl
-//                   hover:-translate-y-2
-//                   break-inside-avoid
-//                 `}
+//                 viewport={{ once: true, margin: "-80px" }}
+//                 transition={{ duration: 0.7 }}
+//                 className="group block break-inside-avoid cursor-pointer pb-4 md:pb-6"
 //               >
-//                 <div className="relative w-full aspect-[4/3] sm:aspect-[5/4] overflow-hidden">
-//                   {/* Image */}
-//                   <div
-//                     className={`
-//                       absolute inset-0 bg-cover bg-center transition-transform duration-1000 ease-out
-//                       group-hover:scale-110
-//                     `}
-//                     style={{
-//                       backgroundImage: `url(${item.image})`,
-//                       willChange: "transform",
-//                     }}
-//                   />
-
-//                   {/* Always visible subtle dark gradient at bottom */}
-//                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10 pointer-events-none" />
-
-//                   {/* WHITE overlay on hover – clean & modern */}
-//                   <div
-//                     className={`
-//                       absolute inset-0 z-20
-//                       bg-white/12
-//                       backdrop-blur-sm
-//                       opacity-0 group-hover:opacity-80
-//                       transition-all duration-500 ease-out
-//                     `}
-//                   />
-
-//                   {/* Text appears on hover */}
-//                   <div
-//                     className={`
-//                       absolute inset-0 z-30
-//                       flex flex-col items-center justify-center px-6 text-center
-//                       transition-all duration-700 ease-out
-//                       opacity-0 group-hover:opacity-100
-//                       translate-y-10 group-hover:translate-y-0
-//                     `}
-//                   >
-//                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-4 drop-shadow-2xl tracking-tight">
-//                       {item.title}
-//                     </h3>
-//                     <p className="text-base sm:text-lg font-medium uppercase tracking-wider text-blue-100/95 drop-shadow-lg">
-//                       {item.categories.join(" • ")}
-//                     </p>
+//                 <div
+//                   className={`
+//                     relative overflow-hidden rounded-xl md:rounded-2xl
+//                     bg-gray-900/40 backdrop-blur-sm
+//                     border border-gray-800/60
+//                     shadow-xl shadow-black/50
+//                     transition-all duration-500
+//                     hover:shadow-2xl hover:shadow-red-900/40
+//                     hover:-translate-y-2
+//                   `}
+//                 >
+//                   <div className="relative w-full aspect-[4/3] overflow-hidden">
+//                     <div
+//                       className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 ease-out group-hover:scale-110"
+//                       style={{ backgroundImage: `url(${item.image})` }}
+//                     />
+//                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-10" />
+//                     <div
+//                       className={`
+//                         absolute inset-0 z-20
+//                         bg-white/10 backdrop-blur-sm
+//                         opacity-0 group-hover:opacity-70
+//                         transition-opacity duration-500
+//                       `}
+//                     />
+//                     <div
+//                       className={`
+//                         absolute inset-0 z-30
+//                         flex flex-col items-center justify-center px-5 text-center
+//                         opacity-0 group-hover:opacity-100
+//                         translate-y-6 group-hover:translate-y-0
+//                         transition-all duration-700 ease-out
+//                       `}
+//                     >
+//                       <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight drop-shadow-xl">
+//                         {item.title}
+//                       </h3>
+//                       <p className="mt-3 text-sm md:text-base font-medium uppercase tracking-wider text-red-100/90 drop-shadow-lg">
+//                         {item.categories.slice(0, 3).join(" • ")}
+//                         {item.categories.length > 3 && " • +more"}
+//                       </p>
+//                       <div className="mt-5 flex items-center gap-2 text-white/90 text-sm font-medium">
+//                         <span>View Project</span>
+//                         <ExternalLink size={18} />
+//                       </div>
+//                     </div>
 //                   </div>
 //                 </div>
-//               </motion.div>
+//               </motion.a>
 //             ))
 //           )}
 //         </div>
 
-//         {/* CTA */}
+//         {/* CTA Section - reduced top margin */}
 //         <motion.div
-//           initial="hidden"
-//           whileInView="visible"
+//           initial={{ opacity: 0, y: 40 }}
+//           whileInView={{ opacity: 1, y: 0 }}
 //           viewport={{ once: true }}
-//           variants={fadeInUp}
-//           className="text-center mt-20 md:mt-28 py-12 md:py-16"
+//           transition={{ duration: 0.8, delay: 0.2 }}
+//           className="text-center mt-12 md:mt-16 lg:mt-20 pb-4 md:pb-6"
 //         >
-//           <h2 className="text-4xl sm:text-5xl font-black mb-6">
-//             Ready to Build <span className="text-red-500">Something Great</span>?
+//           <h2 className="text-4xl md:text-5xl font-black mb-6">
+//             Ready to Start <span className="text-red-500">Your Project</span>?
 //           </h2>
-//           <p className="text-lg sm:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-//             Let's turn your vision into a powerful digital experience.
+//           <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-xl mx-auto">
+//             Let's create something powerful together.
 //           </p>
 //           <a
 //             href="/contact"
-//             className="
-//               inline-flex items-center px-8 sm:px-10 py-4 sm:py-5
+//             className={`
+//               inline-flex items-center gap-3 px-8 md:px-10 py-4 md:py-5
 //               bg-gradient-to-r from-red-600 to-rose-600
 //               hover:from-red-700 hover:to-rose-700
-//               rounded-full text-lg sm:text-xl font-bold
-//               shadow-xl shadow-red-900/40
-//               transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl
-//             "
+//               rounded-full text-lg md:text-xl font-bold
+//               shadow-2xl shadow-red-900/50 pb-10
+//               transition-all duration-400 hover:-translate-y-2 hover:shadow-red-800/60
+//             `}
 //           >
-//             Get in Touch
-//             <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2" />
+//             Let's Talk
+//             <ArrowRight size={22} />
 //           </a>
 //         </motion.div>
 //       </div>
 //     </div>
 //   );
-// };
+// }
 
-// export default RecentWork;
+import React, { useCallback, useMemo, useState } from "react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 
-
-import React, { Suspense, useCallback, useMemo, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import Particles from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
-import { Canvas, useFrame } from "@react-three/fiber";
-import {
-  OrbitControls,
-  Float,
-  MeshDistortMaterial,
-  Sphere,
-  Box,
-  Environment,
-  PerspectiveCamera,
-} from "@react-three/drei";
-import * as THREE from "three";
-import { ArrowRight } from "lucide-react";
-
-// Import your images
-import img1 from "../Mobile/img/recentnewimage.png";
-import img2 from "../Mobile/img/recent4.jpg";
+// Images (unchanged)
+import img1 from "../Mobile/img/newimage1.jpg";
+import img2 from "../Mobile/img/newimage4.jpg";
 import img3 from "../Mobile/img/Generatedimage.png";
 import img4 from "../Mobile/img/generatedimage2.jpg";
 import img5 from "../Mobile/img/generatedimage4.jpg";
-import img6 from "../Mobile/img/recent8.jpg";
-import img7 from "../Mobile/img/generatedimage3.jpg";
-import img8 from "../Mobile/img/recent10.jpg";
+import img6 from "../Mobile/img/newimage2.jpg";
+import img7 from "../Mobile/img/recentiamge2.jpg";
+import img8 from "../Mobile/img/newimage3.jpg";
 import img9 from "../Mobile/img/recentimagenew2.jpg";
-
-const AnimatedSphere = ({ position, color }) => {
-  const meshRef = useRef();
-
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.getElapsedTime() * 0.2;
-      meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.3;
-    }
-  });
-
-  return (
-    <Float speed={2} rotationIntensity={1} floatIntensity={2}>
-      <Sphere ref={meshRef} args={[1, 64, 64]} position={position}>
-        <MeshDistortMaterial
-          color={color}
-          distort={0.4}
-          speed={2}
-          roughness={0.2}
-          metalness={0.8}
-        />
-      </Sphere>
-    </Float>
-  );
-};
-
-const RotatingCubes = () => {
-  const groupRef = useRef();
-
-  useFrame((state) => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y = state.clock.getElapsedTime() * 0.15;
-    }
-  });
-
-  const cubes = [];
-  const radius = 3;
-  const count = 8;
-
-  for (let i = 0; i < count; i++) {
-    const angle = (i / count) * Math.PI * 2;
-    const x = Math.cos(angle) * radius;
-    const z = Math.sin(angle) * radius;
-
-    cubes.push(
-      <Box key={i} position={[x, 0, z]} args={[0.3, 0.3, 0.3]}>
-        <meshStandardMaterial color="#dc2626" metalness={0.8} roughness={0.2} />
-      </Box>
-    );
-  }
-
-  return <group ref={groupRef}>{cubes}</group>;
-};
-
-const FloatingParticles3D = () => {
-  const particlesRef = useRef();
-  const count = 200;
-
-  const positions = new Float32Array(count * 3);
-  const colors = new Float32Array(count * 3);
-
-  for (let i = 0; i < count; i++) {
-    positions[i * 3] = (Math.random() - 0.5) * 20;
-    positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
-    positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
-
-    colors[i * 3] = 0.86;
-    colors[i * 3 + 1] = 0.15;
-    colors[i * 3 + 2] = 0.15;
-  }
-
-  useFrame((state) => {
-    if (particlesRef.current) {
-      particlesRef.current.rotation.y = state.clock.getElapsedTime() * 0.05;
-      particlesRef.current.rotation.x = state.clock.getElapsedTime() * 0.03;
-    }
-  });
-
-  return (
-    <points ref={particlesRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={count}
-          array={positions}
-          itemSize={3}
-        />
-        <bufferAttribute
-          attach="attributes-color"
-          count={count}
-          array={colors}
-          itemSize={3}
-        />
-      </bufferGeometry>
-      <pointsMaterial size={0.05} vertexColors transparent opacity={0.6} />
-    </points>
-  );
-};
-
-const Scene3D = () => {
-  return (
-    <>
-      <PerspectiveCamera makeDefault position={[0, 0, 8]} />
-      <OrbitControls
-        enableZoom={false}
-        enablePan={false}
-        autoRotate
-        autoRotateSpeed={0.5}
-        maxPolarAngle={Math.PI / 2}
-        minPolarAngle={Math.PI / 2}
-      />
-      <ambientLight intensity={0.5} />
-      <pointLight position={[10, 10, 10]} intensity={1} color="#dc2626" />
-      <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ef4444" />
-      <spotLight
-        position={[0, 5, 0]}
-        angle={0.3}
-        penumbra={1}
-        intensity={1}
-        color="#f87171"
-      />
-      <FloatingParticles3D />
-      <AnimatedSphere position={[-3, 2, -2]} color="#dc2626" />
-      <AnimatedSphere position={[3, -2, -1]} color="#ef4444" />
-      <AnimatedSphere position={[0, 3, 1]} color="#f87171" />
-      <RotatingCubes />
-      <Environment preset="city" />
-    </>
-  );
-};
-
-const particlesOptions = {
-  fullScreen: { enable: false },
-  background: { color: { value: "transparent" } },
-  fpsLimit: 60,
-  interactivity: {
-    events: {
-      onClick: { enable: true, mode: "push" },
-      onHover: { enable: true, mode: "repulse" },
-      resize: true,
-    },
-    modes: {
-      push: { quantity: 4 },
-      repulse: { distance: 150, duration: 0.4 },
-    },
-  },
-  particles: {
-    color: { value: ["#dc2626", "#ef4444", "#f87171"] },
-    links: {
-      color: "#dc2626",
-      distance: 140,
-      enable: true,
-      opacity: 0.15,
-      width: 1,
-    },
-    move: {
-      direction: "none",
-      enable: true,
-      outModes: { default: "bounce" },
-      random: true,
-      speed: 1.2,
-      straight: false,
-    },
-    number: { density: { enable: true, area: 800 }, value: 70 },
-    opacity: { value: 0.3 },
-    shape: { type: "circle" },
-    size: { value: { min: 1, max: 3 } },
-  },
-  detectRetina: true,
-};
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 60 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-};
-
-const staggerContainer = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
-};
 
 const portfolioItems = [
   {
     id: "1561",
-    title: "Parineek",
+    title: "Sameer Tent House",
     categories: ["Consultancy", "Global Business", "Industrial", "UI/UX"],
     image: img1,
-    bgColor: "#1e40af",
+    link: "https://www.sameertenthouse.com",
   },
   {
     id: "1554",
-    title: "Nova Quinta",
+    title: "Balaji Events",
     categories: ["Consultancy", "Corporate", "Global Business", "UI/UX"],
     image: img2,
-    bgColor: "#1e3a8a",
+    link: "https://grand-sameer-project-e4z5.vercel.app/",
   },
   {
     id: "1541",
     title: "FirstMeridian",
     categories: ["Consultancy", "Resourcing"],
     image: img3,
-    bgColor: "#1d4ed8",
+    link: "https://firstmeridian.com",
   },
   {
     id: "1533",
-    title: "AIOne Health",
-    categories: [
-      "Consultancy",
-      "Corporate",
-      "Medical",
-      "SAAS",
-      "Software",
-      "UI/UX",
-    ],
+    title: "Balaji Decorators",
+    categories: ["Consultancy", "Corporate", "Medical", "SAAS", "Software", "UI/UX"],
     image: img6,
-    bgColor: "#2563eb",
+    link: "https://www.balajidecorater.com",
   },
   {
     id: "1522",
     title: "Clanbridge",
     categories: ["Hospitality", "Lifestyle", "Real Estate", "UI/UX"],
     image: img4,
-    bgColor: "#3b82f6",
+    link: "https://clanbridge.com",
   },
   {
     id: "1477",
     title: "Acutok",
     categories: ["Consultancy", "SAAS", "Software", "UI/UX"],
     image: img5,
-    bgColor: "#1e40af",
+    link: "https://acutok.com",
   },
   {
     id: "1473",
-    title: "MentorPOS",
+    title: "IncorpNow",
     categories: ["Consultancy", "SAAS", "Software", "UI/UX"],
     image: img8,
-    bgColor: "#1d4ed8",
+    link: "https://www.incorpnow.in/",
   },
   {
     id: "1456",
     title: "Alankaram",
     categories: ["Ecommerce", "Furniture", "Lifestyle"],
     image: img7,
-    bgColor: "#2563eb",
+    link: "https://alankaram.in",
   },
   {
     id: "1517",
     title: "Aaalay",
     categories: ["Consultancy", "SAAS", "Software", "UI/UX"],
     image: img9,
-    bgColor: "#3b82f6",
+    link: "https://aaalay.com",
   },
 ];
 
-const allCategories = [
-  "All",
-  ...new Set(portfolioItems.flatMap((item) => item.categories)),
-];
+const allCategories = ["All", ...new Set(portfolioItems.flatMap((item) => item.categories))];
 
-const RecentWork = () => {
-  const particlesInit = useCallback(async (engine) => {
-    await loadSlim(engine);
-  }, []);
-
+export default function RecentWork() {
   const [activeFilter, setActiveFilter] = useState("All");
 
   const filteredItems = useMemo(() => {
     if (activeFilter === "All") return portfolioItems;
-    return portfolioItems.filter((item) =>
-      item.categories.includes(activeFilter)
-    );
+    return portfolioItems.filter((item) => item.categories.includes(activeFilter));
   }, [activeFilter]);
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-x-hidden">
-      {/* Background Effects */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{ height: "calc(100vh + 3000px)" }}
-      >
-        <div className="absolute inset-0 z-0">
-          <Canvas>
-            <Suspense fallback={null}>
-              <Scene3D />
-            </Suspense>
-          </Canvas>
-        </div>
-
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <Particles
-            id="tsparticles-work"
-            init={particlesInit}
-            options={particlesOptions}
-          />
-        </div>
-
-        <div className="absolute inset-0 pointer-events-none z-0">
-          <div className="absolute top-20 right-0 w-96 h-96 bg-red-600/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-40 left-0 w-96 h-96 bg-red-800/15 rounded-full blur-3xl animate-pulse delay-1000" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-900/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80 z-10 pointer-events-none" />
-      </div>
+      {/* Simple static background gradient – no animation */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black via-gray-950 to-black" />
 
       {/* Main Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-16 md:pt-20 lg:pt-24">
-        {/* Hero */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-          className="text-center mb-16 md:mb-20"
-        >
-          <motion.h1
-            variants={fadeInUp}
-            className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 tracking-tight"
-          >
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 pt-16 md:pt-24 lg:pt-28 pb-16 md:pb-20">
+        {/* Hero Section */}
+        <div className="text-center mb-12 md:mb-16">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-5 tracking-tight leading-tight">
             OUR{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-rose-500 to-pink-500">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-rose-500 to-pink-600">
               RECENT WORK
             </span>
-          </motion.h1>
+          </h1>
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            Crafting high-impact digital experiences that drive growth across industries.
+          </p>
+        </div>
 
-          <motion.p
-            variants={fadeInUp}
-            className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
-          >
-            Delivering exceptional digital solutions across industries — from startups to enterprises.
-          </motion.p>
-
-          <motion.div
-            variants={fadeInUp}
-            className="mt-8 h-1.5 w-40 bg-gradient-to-r from-red-600 to-rose-600 mx-auto rounded-full"
-          />
-        </motion.div>
-
-        {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-10 md:mb-12">
-          {allCategories.map((category) => (
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap justify-center gap-2.5 md:gap-4 mb-10 md:mb-14">
+          {allCategories.map((cat) => (
             <button
-              key={category}
-              onClick={() => setActiveFilter(category)}
+              key={cat}
+              onClick={() => setActiveFilter(cat)}
               className={`
-                px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold uppercase tracking-wide
-                transition-all duration-300 border
+                px-5 py-2.5 rounded-full text-sm md:text-base font-semibold uppercase tracking-wider
+                border transition-colors duration-300
                 ${
-                  activeFilter === category
-                    ? "bg-red-600/90 text-white border-red-500 shadow-lg shadow-red-900/40"
-                    : "bg-white/5 text-gray-200 border-gray-700 hover:bg-white/10 hover:border-gray-500"
+                  activeFilter === cat
+                    ? "bg-red-600/90 border-red-500 text-white shadow-lg shadow-red-900/50"
+                    : "bg-white/5 border-gray-700 text-gray-200 hover:bg-white/10 hover:border-gray-500"
                 }
               `}
             >
-              {category}
+              {cat}
             </button>
           ))}
         </div>
 
-        {/* Improved Description Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.3 }}
-          className="mb-12 md:mb-16 text-center"
-        >
-          <div
-            className="
-              inline-block max-w-4xl mx-auto
-              p-8 md:p-10 lg:p-12
-              bg-gradient-to-br from-gray-900/50 via-gray-800/40 to-gray-900/50
-              backdrop-blur-xl backdrop-saturate-150
-              border border-white/5 border-gray-700/30
-              rounded-2xl md:rounded-3xl
-              shadow-2xl shadow-black/60
-              relative overflow-hidden
-            "
-          >
-            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-500/50 via-indigo-500/50 to-purple-500/50 opacity-70" />
-
-            <p className="text-base sm:text-lg md:text-xl text-gray-300/90 leading-relaxed max-w-3xl mx-auto font-light">
-              We create <span className="font-medium text-white">modern, high-performance</span> website designed to improve brand visibility and generate qualified leads.
-Optimized for SEO and structured for better conversions across all devices.
-Built with a focus on speed, responsiveness, and user experience.
-A modern, high-performance business 
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Masonry Grid - NO GAPS + WHITE HOVER */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-0 space-y-0">
+        {/* Portfolio Grid */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 md:gap-5 pb-6">
           {filteredItems.length === 0 ? (
-            <div className="col-span-full text-center text-gray-400 text-xl py-12">
-              No projects found in this category.
+            <div className="col-span-full text-center py-20 text-gray-400 text-xl">
+              No projects match this filter.
             </div>
           ) : (
             filteredItems.map((item) => (
-              <motion.div
+              <a
                 key={item.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
-                className={`
-                  group relative overflow-hidden
-                  bg-gray-900/30 backdrop-blur-sm
-                  border border-gray-800/50
-                  shadow-2xl shadow-black/40
-                  transition-all duration-500
-                  hover:shadow-blue-900/40 hover:shadow-2xl
-                  hover:-translate-y-2
-                  break-inside-avoid
-                `}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block break-inside-avoid cursor-pointer pb-4 md:pb-5"
               >
-                <div className="relative w-full aspect-[4/3] sm:aspect-[5/4] overflow-hidden">
-                  {/* Image */}
-                  <div
-                    className={`
-                      absolute inset-0 bg-cover bg-center transition-transform duration-1000 ease-out
-                      group-hover:scale-110
-                    `}
-                    style={{
-                      backgroundImage: `url(${item.image})`,
-                      willChange: "transform",
-                    }}
-                  />
-
-                  {/* Always visible subtle dark gradient at bottom */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10 pointer-events-none" />
-
-                  {/* WHITE overlay on hover – clean & modern */}
-                  <div
-                    className={`
-                      absolute inset-0 z-20
-                      bg-white/12
-                      backdrop-blur-sm
-                      opacity-0 group-hover:opacity-80
-                      transition-all duration-500 ease-out
-                    `}
-                  />
-
-                  {/* Text appears on hover */}
-                  <div
-                    className={`
-                      absolute inset-0 z-30
-                      flex flex-col items-center justify-center px-6 text-center
-                      transition-all duration-700 ease-out
-                      opacity-0 group-hover:opacity-100
-                      translate-y-10 group-hover:translate-y-0
-                    `}
-                  >
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-4 drop-shadow-2xl tracking-tight">
-                      {item.title}
-                    </h3>
-                    <p className="text-base sm:text-lg font-medium uppercase tracking-wider text-blue-100/95 drop-shadow-lg">
-                      {item.categories.join(" • ")}
-                    </p>
+                <div
+                  className={`
+                    relative overflow-hidden rounded-xl md:rounded-2xl
+                    bg-gray-900/40 backdrop-blur-sm
+                    border border-gray-800/60
+                    shadow-xl shadow-black/50
+                    transition-all duration-400
+                    hover:shadow-2xl hover:shadow-red-900/30
+                    hover:-translate-y-1.5
+                  `}
+                >
+                  <div className="relative w-full aspect-[4/3] overflow-hidden">
+                    <div
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+                      style={{ backgroundImage: `url(${item.image})` }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-transparent z-10" />
+                    <div
+                      className={`
+                        absolute inset-0 z-20
+                        bg-black/30 backdrop-blur-sm
+                        opacity-0 group-hover:opacity-60
+                        transition-opacity duration-500
+                      `}
+                    />
+                    <div
+                      className={`
+                        absolute inset-0 z-30
+                        flex flex-col items-center justify-center px-5 text-center
+                        opacity-0 group-hover:opacity-100
+                        translate-y-4 group-hover:translate-y-0
+                        transition-all duration-600 ease-out
+                      `}
+                    >
+                      <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight drop-shadow-xl">
+                        {item.title}
+                      </h3>
+                      <p className="mt-3 text-sm md:text-base font-medium uppercase tracking-wider text-red-100/90 drop-shadow-lg">
+                        {item.categories.slice(0, 3).join(" • ")}
+                        {item.categories.length > 3 && " • +more"}
+                      </p>
+                      <div className="mt-5 flex items-center gap-2 text-white/90 text-sm font-medium">
+                        <span>View Project</span>
+                        <ExternalLink size={18} />
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </motion.div>
+              </a>
             ))
           )}
         </div>
 
-        {/* CTA - adjusted spacing */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          className="text-center mt-16 md:mt-20 lg:mt-24 mb-5 md:mb-8"
-        >
-          <h2 className="text-4xl sm:text-5xl font-black mb-5 md:mb-6">
-            Ready to Build <span className="text-red-500">Something Great</span>?
+        {/* CTA Section */}
+        <div className="text-center mt-12 md:mt-16 pb-6">
+          <h2 className="text-4xl md:text-5xl font-black mb-6">
+            Ready to Start <span className="text-red-500">Your Project</span>?
           </h2>
-          <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Let's turn your vision into a powerful digital experience.
+          <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-xl mx-auto">
+            Let's create something powerful together.
           </p>
           <a
             href="/contact"
-            className="
-              inline-flex items-center gap-2 px-8 sm:px-10 py-4 sm:py-5
+            className={`
+              inline-flex items-center gap-3 px-8 md:px-10 py-4 md:py-5
               bg-gradient-to-r from-red-600 to-rose-600
               hover:from-red-700 hover:to-rose-700
-              rounded-full text-lg sm:text-xl font-bold
-              shadow-xl shadow-red-900/40
-              transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl
-            "
+              rounded-full text-lg md:text-xl font-bold
+              shadow-xl shadow-red-900/50
+              transition-all duration-400 hover:-translate-y-1.5 hover:shadow-red-800/60
+            `}
           >
-            Get in Touch
-            <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
+            Let's Talk
+            <ArrowRight size={22} />
           </a>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
-};
-
-export default RecentWork;
+}

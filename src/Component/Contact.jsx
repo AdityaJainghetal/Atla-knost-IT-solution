@@ -234,10 +234,10 @@ const Contact = () => {
                       </h3>
                       <p className="mt-1.5 text-gray-300">
                         <a
-                          href="mailto:ATLAknotssolution@gmail.com"
+                          href="mailto:altaknotssolution@gmail.com"
                           className="hover:text-red-400 transition"
                         >
-                          ATLAknotssolution@gmail.com
+                          altaknotssolution@gmail.com
                         </a>
                       </p>
                     </div>

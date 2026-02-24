@@ -252,7 +252,7 @@ export default function About() {
 
     try {
       await axios.post(
-        "https://atla-knots-solution-admin-2.onrender.com/query/create",
+        "https://atla-knots-admin.onrender.com/query/create",
         formData,
       );
 

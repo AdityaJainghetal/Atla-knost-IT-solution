@@ -5,7 +5,7 @@
 //   'blog/fetchCategories',
 //   async (_, { rejectWithValue }) => {
 //     try {
-//       const res = await fetch('https://atla-knots-solution-admin-2.onrender.com/api/blogcategory');
+//       const res = await fetch('https://atla-knots-admin.onrender.com/api/blogcategory');
 //       if (!res.ok) throw new Error('Failed to fetch categories');
 //       const data = await res.json();
 //       if (!data.success) throw new Error(data.message || 'Failed');
@@ -21,7 +21,7 @@
 //   'blog/fetchBlogPosts',
 //   async (_, { rejectWithValue }) => {
 //     try {
-//       const res = await fetch('https://atla-knots-solution-admin-2.onrender.com/api/product'); // ← your real blog endpoint
+//       const res = await fetch('https://atla-knots-admin.onrender.com/api/product'); // ← your real blog endpoint
 //       if (!res.ok) throw new Error('Failed to fetch posts');
 //       const data = await res.json();
 //       if (!data.success) throw new Error(data.message || 'Failed');
@@ -89,7 +89,7 @@ export const fetchCategories = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const res = await fetch(
-        "https://atla-knots-solution-admin-2.onrender.com/api/blogcategory",
+        "https://atla-knots-admin.onrender.com/api/blogcategory",
       );
       if (!res.ok) throw new Error("Failed to fetch categories");
       const data = await res.json();
@@ -107,7 +107,7 @@ export const fetchBlogPosts = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const res = await fetch(
-        "https://atla-knots-solution-admin-2.onrender.com/api/product",
+        "https://atla-knots-admin.onrender.com/api/product",
       );
       if (!res.ok) throw new Error("Failed to fetch posts");
       const data = await res.json();
@@ -125,7 +125,7 @@ export const fetchBlogPostById = createAsyncThunk(
   async (postId, { rejectWithValue }) => {
     try {
       const res = await fetch(
-        `https://atla-knots-solution-admin-2.onrender.com/api/product/${postId}`,
+        `https://atla-knots-admin.onrender.com/api/product/${postId}`,
       );
       if (!res.ok) throw new Error("Post not found");
       const data = await res.json();

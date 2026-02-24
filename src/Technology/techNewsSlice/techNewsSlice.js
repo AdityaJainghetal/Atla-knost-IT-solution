@@ -7,7 +7,7 @@ export const fetchTechNews = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        "https://atla-knots-solution-admin-2.onrender.com/tech",
+        "https://atla-knots-admin.onrender.com/tech",
       );
       let items = response.data?.data || [];
 

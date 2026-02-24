@@ -7,7 +7,7 @@
 //   async (formDataWithCaptcha, { rejectWithValue }) => {
 //     try {
 //       const response = await axios.post(
-//         'https://atla-knots-solution-admin-2.onrender.com/api/contact/create',
+//         'https://atla-knots-admin.onrender.com/api/contact/create',
 //         formDataWithCaptcha
 //       );
 //       return response.data; // you can return success message or whatever backend sends
@@ -106,7 +106,7 @@ export const submitContactForm = createAsyncThunk(
   async (payload, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "https://atla-knots-solution-admin-2.onrender.com/api/contact/create",
+        "https://atla-knots-admin.onrender.com/api/contact/create",
         payload,
       );
       return response.data;

@@ -7,7 +7,7 @@ export const fetchCategories = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data: result } = await axios.get(
-        "https://atla-knots-solution-admin-2.onrender.com/api/technology/category",
+        "https://atla-knots-admin.onrender.com/api/technology/category",
         { timeout: 10000 },
       );
       const categoryData = result.data || [];
@@ -27,8 +27,7 @@ export const fetchProducts = createAsyncThunk(
   "technology/fetchProducts",
   async (categoryId, { rejectWithValue }) => {
     try {
-      let url =
-        "https://atla-knots-solution-admin-2.onrender.com/api/technology/product";
+      let url = "https://atla-knots-admin.onrender.com/api/technology/product";
       if (categoryId) {
         url += `?categoryId=${categoryId}`;
       }

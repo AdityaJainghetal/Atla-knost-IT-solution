@@ -12,7 +12,7 @@
 //   useEffect(() => {
 //     const fetchCategories = async () => {
 //       try {
-//         const res = await fetch("https://atla-knots-solution-admin-2.onrender.com/api/blogcategory");
+//         const res = await fetch("https://atla-knots-admin.onrender.com/api/blogcategory");
 //         if (!res.ok) throw new Error("Categories fetch failed");
 //         const data = await res.json();
 
@@ -36,7 +36,7 @@
 //     const fetchPosts = async () => {
 //       try {
 //         setLoading(true);
-//         const res = await fetch("https://atla-knots-solution-admin-2.onrender.com/api/product"); // ← CHANGE TO YOUR REAL BLOG ENDPOINT
+//         const res = await fetch("https://atla-knots-admin.onrender.com/api/product"); // ← CHANGE TO YOUR REAL BLOG ENDPOINT
 //         if (!res.ok) throw new Error("Posts fetch failed");
 //         const data = await res.json();
 

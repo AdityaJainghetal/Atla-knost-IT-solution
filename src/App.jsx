@@ -14,6 +14,14 @@ import Technology from "./Technology/Technology";
 import TechNews from "./Technology/TechNews";
 import RecentWork from "./Component/Recentwork/Recentwork";
 import CareerPage from "./Component/Carrer/Carrerpage";
+import Gallery from "./Gallery/Gallery";
+import { Helmet } from "react-helmet";
+import Blog from "./Component/Blog/Blog";
+import BlogDetail from "./Component/Blog/BlogDetail";
+
+<Helmet>
+  <link rel="canonical" href="https://www.atlaknots.com" />
+</Helmet>
 const App = () => {
   return (
     <div>
@@ -34,6 +42,9 @@ const App = () => {
             <Route path="technews" element={<TechNews />} />
             <Route path="careers" element={<CareerPage />} />
             <Route path="/recentwork" element={<RecentWork/>}/>
+            <Route path="/blog" element={<Blog/>}/>
+            <Route path="/blog/:id" element={<BlogDetail />} />
+            <Route path="/gallery" element={<Gallery/>}/>
 
             
           </Route>

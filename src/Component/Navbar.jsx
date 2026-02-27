@@ -71,7 +71,7 @@ export default function Navbar() {
                           <img
                 src={ATLAknots}
                 alt="ATLAKnots Logo"
-                className="h-24 w-12 md:h-16 md:w-46 lg:h-37 mt-5 lg:w-50 object-contain"
+                className="h-4 w-12 md:h-16 md:w-46 lg:h-37 mt-5 lg:w-50 object-contain"
               />
           </NavLink>
 

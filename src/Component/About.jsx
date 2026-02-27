@@ -330,8 +330,12 @@ export default function About() {
           className="relative z-10 w-full max-w-7xl mx-auto text-center"
         >
           <motion.div variants={fadeInUp} className="mb-10 pt-16 md:pt-24">
-            <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] font-black tracking-tighter mb-4">
+            {/* <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] font-black tracking-tighter mb-4">
               ATLA KNOTS
+            </h1> */}
+
+            <h1 className="text-8xl md:text-7xl  font-stretch-75% font-black mb-6">
+              ABOUT ATLA KNOTS
             </h1>
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-400 to-red-600 animate-gradient-x">
@@ -344,11 +348,12 @@ export default function About() {
             variants={fadeInUp}
             className="text-xl md:text-2xl text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed px-4"
           >
-            We build powerful, secure, and future-ready{" "}
+            We provide complete digital services,{" "}
             <span className="text-red-400 font-semibold">
-              IT & BPO solutions
+              including SEO, digital marketing,
             </span>{" "}
-            — so your business can focus on growth, not technology.
+            website development, social media management, software development,
+            and ERP solutions.
           </motion.p>
 
           {/* Image + Text Blocks */}
@@ -361,7 +366,7 @@ export default function About() {
                 </h3>
                 <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-8 max-w-xl">
                   At{" "}
-                  <span className="font-semibold text-white">ATLA Knots</span>,
+                  {/* <span className="font-semibold text-white">ATLA Knots</span>, */}
                   we believe technology should empower—not complicate.
                 </p>
                 <button
@@ -558,9 +563,6 @@ export default function About() {
             variants={staggerContainer}
             className="text-center mb-12"
           >
-            <h2 className="text-5xl md:text-7xl font-black mb-6">
-              ABOUT <span className="text-red-500">ATLA KNOTS</span>
-            </h2>
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto px-4">
               Technology that connects. Solutions that deliver. Partnerships
               that last.

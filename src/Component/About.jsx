@@ -35,7 +35,6 @@ import {
 import * as THREE from "three";
 
 import img4 from "../Component/Mobile/img/Atlaimage.jpg";
-import img5 from "../Component/Mobile/img/image11.png";
 import MobileOnboarding from "./Mobile/Mobilebraing";
 import { useNavigate } from "react-router-dom";
 import img1 from "./Mobile/img/mobileviewpart1.png";
@@ -939,7 +938,7 @@ export default function About() {
           </section>
 
           {/* ==================== OUR TEAM SECTION ==================== */}
-          <section className="relative py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-950 to-black">
+       <section className="py-16 px-5 sm:px-8">
             <div className="max-w-7xl mx-auto">
               <motion.div
                 initial="hidden"
@@ -948,7 +947,7 @@ export default function About() {
                 variants={staggerContainer}
                 className="text-center mb-12"
               >
-                <h2 className="text-5xl md:text-7xl font-black mb-4">
+                <h2 className="text-5xl md:text-6xl font-black mb-4">
                   Our <span className="text-red-500">Team</span>
                 </h2>
                 <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
@@ -956,20 +955,12 @@ export default function About() {
                 </p>
               </motion.div>
 
-              <div className="w-8xl">
-                {/* Managing Director - same pattern repeated for others */}
-            
-
-             
-                  <div className="relative ">
-                    <img
-                      src={OurTeam}
-                      alt="OurTeam"
-                      className="w-full h-120  object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-                  </div>
-                  
+              <div className="rounded-2xl overflow-hidden border border-red-900/30 shadow-2xl">
+                <img
+                  src={OurTeam}
+                  alt="Our Team"
+                  className="w-full h-auto max-h-[700px] object-cover"
+                />
               </div>
             </div>
           </section>

@@ -41,13 +41,14 @@ import { useNavigate } from "react-router-dom";
 import img1 from "./Mobile/img/mobileviewpart1.png";
 import img2 from "./Mobile/img/mobileviewpart2.png";
 import img3 from "./Mobile/img/mobileviewpart3.png";
-import Adityaimg from "./Mobile/img/adityajain.jpg";
-import smayaimg from "./Mobile/img/samya2.jpeg";
 import img6 from "./Mobile/img/mobileview.png";
 import FounderImg from "./Mobile/img/nagar.jpg";
 import MdImg from "./Mobile/img/Md.jpg";
 import CeoImg from "./Mobile/img/CEO.jpg";
 import CtoImg from "./Mobile/img/CTO.jpg";
+import OurTeam from "./Mobile/img/OurTeam.jpg"
+import OurTeam2 from "./Mobile/img/OurTeam2.jpg"
+
 
 const images = [img1, img2, img3];
 
@@ -619,7 +620,7 @@ export default function About() {
 
             <motion.div variants={fadeInRight}>
               <img
-                src="https://img.freepik.com/free-photo/group-multinational-busy-people-working-office_146671-15658.jpg?w=740"
+                src={OurTeam2}
                 alt="Team working"
                 className="rounded-2xl shadow-2xl w-full object-cover border border-red-900/30"
               />
@@ -955,115 +956,20 @@ export default function About() {
                 </p>
               </motion.div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="w-8xl">
                 {/* Managing Director - same pattern repeated for others */}
-                <motion.div
-                  variants={scaleIn}
-                  whileHover={{ scale: 1.05, y: -10 }}
-                  className="bg-gray-900/70 backdrop-blur-sm border border-red-900/30 rounded-2xl overflow-hidden shadow-xl shadow-red-950/40 transition-all duration-300 group"
-                >
-                  <div className="relative">
+            
+
+             
+                  <div className="relative ">
                     <img
-                      src={Adityaimg}
-                      alt="Aditya jain - Software developer"
-                      className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+                      src={OurTeam}
+                      alt="OurTeam"
+                      className="w-full h-120  object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                   </div>
-                  <div className="p-6 text-center">
-                    <h3 className="text-2xl font-bold mb-1 text-white">
-                      Aditya jain
-                    </h3>
-                    <p className="text-red-400 font-semibold mb-2">
-                      Software developer
-                    </p>
-
-                    <div className="flex justify-center gap-6 mt-4">
-                      <a
-                        href="https://www.linkedin.com/in/aditya-jain-9797b5214"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-red-500 transition-colors"
-                      >
-                        <svg
-                          className="w-7 h-7"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                        </svg>
-                      </a>
-                      <a
-                        href="https://github.com/AdityaJainghetal"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-red-500 transition-colors"
-                      >
-                        <svg
-                          className="w-7 h-7"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  variants={scaleIn}
-                  whileHover={{ scale: 1.05, y: -10 }}
-                  className="bg-gray-900/70 backdrop-blur-sm border border-red-900/30 rounded-2xl overflow-hidden shadow-xl shadow-red-950/40 transition-all duration-300 group"
-                >
-                  <div className="relative">
-                    <img
-                      src={smayaimg}
-                      alt="Samya Siddique - Customer Support"
-                      className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-                  </div>
-                  <div className="p-6 text-center">
-                    <h3 className="text-2xl font-bold mb-1 text-white">
-                      Samya Siddique
-                    </h3>
-                    <p className="text-red-400 font-semibold mb-2">
-                      Customer Support
-                    </p>
-
-                    <div className="flex justify-center gap-6 mt-4">
-                      <a
-                        href="https://www.linkedin.com/in/aditya-jain-9797b5214"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-red-500 transition-colors"
-                      >
-                        <svg
-                          className="w-7 h-7"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                        </svg>
-                      </a>
-                      <a
-                        href="https://github.com/AdityaJainghetal"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-red-500 transition-colors"
-                      >
-                        <svg
-                          className="w-7 h-7"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </motion.div>
+                  
               </div>
             </div>
           </section>

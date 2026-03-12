@@ -5,7 +5,7 @@
 //   'blog/fetchCategories',
 //   async (_, { rejectWithValue }) => {
 //     try {
-//       const res = await fetch('https://atla-knots-admin.onrender.com/api/blogcategory');
+//       const res = await fetch('http://localhost:8000/api/blogcategory');
 //       if (!res.ok) throw new Error('Failed to fetch categories');
 //       const data = await res.json();
 //       if (!data.success) throw new Error(data.message || 'Failed');
@@ -21,7 +21,7 @@
 //   'blog/fetchBlogPosts',
 //   async (_, { rejectWithValue }) => {
 //     try {
-//       const res = await fetch('https://atla-knots-admin.onrender.com/api/product'); // ← your real blog endpoint
+//       const res = await fetch('http://localhost:8000/api/product'); // ← your real blog endpoint
 //       if (!res.ok) throw new Error('Failed to fetch posts');
 //       const data = await res.json();
 //       if (!data.success) throw new Error(data.message || 'Failed');
@@ -88,9 +88,7 @@ export const fetchCategories = createAsyncThunk(
   "blog/fetchCategories",
   async (_, { rejectWithValue }) => {
     try {
-      const res = await fetch(
-        "https://atla-knots-admin.onrender.com/api/blogcategory",
-      );
+      const res = await fetch("http://localhost:8000/api/blogcategory");
       if (!res.ok) throw new Error("Failed to fetch categories");
       const data = await res.json();
       if (!data.success) throw new Error(data.message || "Failed");
@@ -106,9 +104,7 @@ export const fetchBlogPosts = createAsyncThunk(
   "blog/fetchBlogPosts",
   async (_, { rejectWithValue }) => {
     try {
-      const res = await fetch(
-        "https://atla-knots-admin.onrender.com/api/product",
-      );
+      const res = await fetch("http://localhost:8000/api/product");
       if (!res.ok) throw new Error("Failed to fetch posts");
       const data = await res.json();
       if (!data.success) throw new Error(data.message || "Failed");
@@ -124,9 +120,7 @@ export const fetchBlogPostById = createAsyncThunk(
   "blog/fetchBlogPostById",
   async (postId, { rejectWithValue }) => {
     try {
-      const res = await fetch(
-        `https://atla-knots-admin.onrender.com/api/product/${postId}`,
-      );
+      const res = await fetch(`http://localhost:8000/api/product/${postId}`);
       if (!res.ok) throw new Error("Post not found");
       const data = await res.json();
       if (!data.success) throw new Error(data.message || "Failed to load post");

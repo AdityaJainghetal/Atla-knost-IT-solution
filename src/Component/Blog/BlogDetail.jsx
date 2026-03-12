@@ -12,7 +12,7 @@
 //     const fetchPost = async () => {
 //       try {
 //         setLoading(true);
-//         const res = await fetch(`https://atla-knots-admin.onrender.com/api/product/${id}`); // ← CHANGE TO YOUR REAL SINGLE POST ENDPOINT
+//         const res = await fetch(`http://localhost:8000/api/product/${id}`); // ← CHANGE TO YOUR REAL SINGLE POST ENDPOINT
 //         if (!res.ok) throw new Error("Post not found");
 //         const data = await res.json();
 

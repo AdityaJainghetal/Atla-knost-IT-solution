@@ -18,6 +18,12 @@ import Gallery from "./Gallery/Gallery";
 import { Helmet } from "react-helmet";
 import Blog from "./Component/Blog/Blog";
 import BlogDetail from "./Component/Blog/BlogDetail";
+import DigitalMarketing from "./Component/DigitalMarketing/DigitalMarketing";
+import SEO from "./Component/DigitalMarketing/SEO";
+import GraphicDesigning from "./Component/Graphic/Graphic";
+import SoftwareDevelopment from "./Component/SoftwareDevelopment/SoftwareDevelopment";
+import MobileAppDevelopment from "./Component/SoftwareDevelopment/MobileAppDevelopment";
+import ERPDevelopment from "./Component/SoftwareDevelopment/ERPDevelopment";
 
 <Helmet>
   <link rel="canonical" href="https://www.atlaknots.com" />
@@ -45,6 +51,20 @@ const App = () => {
             <Route path="/blog" element={<Blog/>}/>
             <Route path="/blog/:id" element={<BlogDetail />} />
             <Route path="/gallery" element={<Gallery/>}/>
+            <Route path="/digital-marketing" element={<DigitalMarketing/>}/>
+            <Route path="/seo" element={<SEO/>}/>
+            <Route path="/graphics" element={<GraphicDesigning/>}/>
+            <Route path="/software" element={<SoftwareDevelopment/>}/>
+            <Route path="/mobiledevelopment" element={<MobileAppDevelopment/>}/>
+            <Route path="/erpdevelopment" element={<ERPDevelopment/>}/>
+
+
+
+
+
+
+
+            
 
             
           </Route>

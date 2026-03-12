@@ -45,13 +45,15 @@
 // import MdImg from "./Mobile/img/Md.jpg";
 // import CeoImg from "./Mobile/img/CEO.jpg";
 // import CtoImg from "./Mobile/img/CTO.jpg";
-// import OurTeam from "./Mobile/img/OurTeam.jpg"
-// import OurTeam2 from "./Mobile/img/OurTeam2.jpg"
+// import OurTeam from "./Mobile/img/OurTeam.jpg";
+// import OurTeam2 from "./Mobile/img/silder.jpeg";
+
+// import OurTeam3 from "./Mobile/img/silder3.jpeg";
 
 
-// const images = [img1, img2, img3];
 
-// function Counter({ value, suffix = "", duration = 2.5 }) {
+
+// function Counter({ value, duration = 2.5 }) {
 //   const count = useMotionValue(0);
 //   const rounded = useTransform(count, Math.round);
 //   const ref = useRef(null);
@@ -60,7 +62,7 @@
 //   useEffect(() => {
 //     if (!isInView) return;
 
-//     const target = parseFloat(value.replace(/[^0-9.]/g, "")) || 0;
+//     const target = Number(value) || 0;
 
 //     const controls = animate(count, target, {
 //       duration,
@@ -71,9 +73,8 @@
 //   }, [isInView, value, duration, count]);
 
 //   return (
-//     <div ref={ref} className="text-4xl md:text-5xl font-black mb-2">
+//     <div ref={ref} className="inline-block">
 //       <motion.span>{rounded}</motion.span>
-//       {suffix && <span>{suffix}</span>}
 //     </div>
 //   );
 // }
@@ -85,7 +86,6 @@
 //     if (meshRef.current) {
 //       meshRef.current.rotation.x += 0.003;
 //       meshRef.current.rotation.y += 0.004;
-//       // Gentle floating motion
 //       meshRef.current.position.y =
 //         position[1] + Math.sin(Date.now() * 0.0006 + position[0]) * 0.18;
 //     }
@@ -124,7 +124,6 @@
 //       <pointLight position={[-10, -10, -10]} intensity={0.85} color="#ef4444" />
 //       <pointLight position={[0, 6, 6]} intensity={1.0} color="#f87171" />
 
-//       {/* More balanced & centered positions */}
 //       <AnimatedSphere position={[-2.8, 1.8, -2.2]} color="#dc2626" />
 //       <AnimatedSphere position={[2.8, -1.6, -1.8]} color="#ef4444" />
 //       <AnimatedSphere position={[0.4, 2.4, 0.8]} color="#f87171" />
@@ -135,9 +134,6 @@
 //   );
 // };
 
-// // ────────────────────────────────────────────────
-// // PARTICLES CONFIG
-// // ────────────────────────────────────────────────
 // const particlesOptions = {
 //   fullScreen: { enable: true, zIndex: -1 },
 //   background: { color: { value: "transparent" } },
@@ -178,9 +174,6 @@
 //   detectRetina: true,
 // };
 
-// // ────────────────────────────────────────────────
-// // MOTION VARIANTS
-// // ────────────────────────────────────────────────
 // const fadeInUp = {
 //   hidden: { opacity: 0, y: 60 },
 //   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
@@ -188,8 +181,17 @@
 
 // const fadeInLeft = {
 //   hidden: { opacity: 0, x: -60 },
-//   visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+//   visible: {
+//     opacity: 1,
+//     x: 0,
+//     transition: { duration: 0.8, ease: "easeOut" }
+//   }
 // };
+
+// // const fadeInLeft = {
+// //   hidden: { opacity: 0, x: -60 },
+// //   visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+// // };
 
 // const fadeInRight = {
 //   hidden: { opacity: 0, x: 60 },
@@ -210,9 +212,6 @@
 //   visible: { transition: { staggerChildren: 0.15 } },
 // };
 
-// // ────────────────────────────────────────────────
-// // MAIN ABOUT COMPONENT
-// // ────────────────────────────────────────────────
 // export default function About() {
 //   const navigate = useNavigate();
 
@@ -251,10 +250,7 @@
 //     setSuccess(false);
 
 //     try {
-//       await axios.post(
-//         "https://atla-knots-admin.onrender.com/query/create",
-//         formData,
-//       );
+//       await axios.post("http://localhost:8000/query/create", formData);
 
 //       setSuccess(true);
 //       setFormData({
@@ -311,7 +307,7 @@
 //         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-900/10 rounded-full blur-3xl" />
 //       </div>
 
-//       {/* ==================== HERO SECTION ==================== */}
+//       {/* HERO SECTION */}
 //       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
 //         <div className="absolute inset-0 z-0">
 //           <Canvas>
@@ -329,12 +325,8 @@
 //           variants={staggerContainer}
 //           className="relative z-10 w-full max-w-7xl mx-auto text-center"
 //         >
-//           <motion.div variants={fadeInUp} className="mb-10 pt-16 md:pt-24">
-//             {/* <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] font-black tracking-tighter mb-4">
-//               ATLA KNOTS
-//             </h1> */}
-
-//             <h1 className="text-8xl md:text-7xl  font-stretch-75% font-black mb-6">
+//           <motion.div variants={fadeInUp} className="mb-10 pt-20 md:pt-24">
+//             <h1 className="text-8xl md:text-7xl font-stretch-75% font-black mb-6">
 //               ABOUT ATLA KNOTS
 //             </h1>
 //             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
@@ -365,9 +357,7 @@
 //                   Building the <span className="text-red-500">Future</span>
 //                 </h3>
 //                 <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-8 max-w-xl">
-//                   At{" "}
-//                   {/* <span className="font-semibold text-white">ATLA Knots</span>, */}
-//                   we believe technology should empower—not complicate.
+//                   At we believe technology should empower—not complicate.
 //                 </p>
 //                 <button
 //                   onClick={() => setIsModalOpen(true)}
@@ -586,48 +576,65 @@
 //             variants={staggerContainer}
 //             className="grid md:grid-cols-2 gap-8 items-center mb-12"
 //           >
-//             <motion.div variants={fadeInLeft} className="space-y-6">
-//               <h5 className="text-red-400 font-semibold text-xl">
-//                 About Our Solution
-//               </h5>
-//               <h2 className="text-4xl md:text-5xl font-bold">
-//                 #1 Partner For Your Business Growth
-//               </h2>
-//               <p className="text-gray-300 text-lg leading-relaxed">
-//                 We deliver cutting-edge technology solutions that transform
-//                 businesses. From custom software development to 24/7 BPO
-//                 support, our team ensures your digital infrastructure is robust,
-//                 scalable, and secure.
-//               </p>
-//               <div className="grid grid-cols-2 gap-8 my-8">
-//                 <div>
-//                   <div className="text-red-500 text-4xl font-black">50+</div>
-//                   <p className="text-gray-400">Projects Delivered</p>
-//                 </div>
-//                 <div>
-//                   <div className="text-red-500 text-4xl font-black">100+</div>
-//                   <p className="text-gray-400">Happy Clients</p>
-//                 </div>
-//               </div>
-//               <button
-//                 onClick={() => setIsModalOpen(true)}
-//                 className="px-10 py-4 bg-red-600 hover:bg-red-700 rounded-full text-lg font-semibold transition"
-//               >
-//                 Read More →
-//               </button>
-//             </motion.div>
+//           <motion.div
+//   variants={fadeInLeft}
+//   initial="hidden"
+//   whileInView="visible"
+//   viewport={{ once: true }}
+//   className="space-y-6"
+// >
+//   <h5 className="text-red-400 font-semibold text-xl">
+//     About Our Solution
+//   </h5>
 
-//             <motion.div variants={fadeInRight}>
+//   <h2 className="text-4xl md:text-5xl font-bold">
+//     #1 Partner For Your Business Growth
+//   </h2>
+
+//   <p className="text-gray-300 text-lg leading-relaxed">
+//     We deliver cutting-edge technology solutions that transform
+//     businesses. From custom software development to 24/7 BPO
+//     support, our team ensures your digital infrastructure is robust,
+//     scalable, and secure.
+//   </p>
+
+//   <div className="grid grid-cols-2 gap-8 my-8">
+//     <div>
+//       <div className="text-red-500 text-4xl font-black">50+</div>
+//       <p className="text-gray-400">Projects Delivered</p>
+//     </div>
+
+//     <div>
+//       <div className="text-red-500 text-4xl font-black">100+</div>
+//       <p className="text-gray-400">Happy Clients</p>
+//     </div>
+//   </div>
+
+//   <button
+//     onClick={() => setIsModalOpen(true)}
+//     className="px-10 py-4 bg-red-600 hover:bg-red-700 rounded-full text-lg font-semibold transition"
+//   >
+//     Read More →
+//   </button>
+// </motion.div>
+
+//             <motion.div variants={fadeInLeft}>
 //               <img
 //                 src={OurTeam2}
+//                 alt="Team working"
+//                 className="rounded-2xl shadow-2xl w-full object-cover border border-red-900/30"
+//               />
+
+//                <img
+//                 src={OurTeam3}
 //                 alt="Team working"
 //                 className="rounded-2xl shadow-2xl w-full object-cover border border-red-900/30"
 //               />
 //             </motion.div>
 //           </motion.div>
 
-//           {/* Stats Cards */}
-//        <motion.div
+//           {/* Stats Cards - FIXED VERSION */}
+//           <motion.div
 //             initial="hidden"
 //             whileInView="visible"
 //             viewport={{ once: true }}
@@ -640,22 +647,22 @@
 //               { num: "90%", label: "Uptime Commitment", icon: ShieldCheck },
 //               { num: "99+", label: "Happy Clients", icon: Users },
 //             ].map((item, index) => {
-//               const shouldAnimate = !item.num.includes("/");
-//               const numberPart = shouldAnimate ? parseFloat(item.num) : null;
+//               const isAnimated = !item.num.includes("/");
+//               const numericValue = isAnimated ? parseFloat(item.num) : null;
 
 //               return (
 //                 <motion.div
 //                   key={index}
 //                   variants={scaleIn}
-//                   whileHover={{ scale: 1.05 }}
-//                   className="bg-gradient-to-br from-gray-900 to-black border border-red-900/30 rounded-2xl p-8 text-center flex flex-col items-center justify-center min-h-[220px]"
+//                   whileHover={{ scale: 1.05, y: -8 }}
+//                   className="bg-gradient-to-br from-gray-900 to-black border border-red-900/30 rounded-2xl p-8 text-center flex flex-col items-center justify-center min-h-[220px] transition-all duration-300"
 //                 >
-//                   <item.icon className="w-12 h-12 mx-auto mb-5 text-red-500" />
+//                   <item.icon className="w-14 h-14 mx-auto mb-5 text-red-500" />
 
-//                   <div className="text-5xl md:text-6xl font-black text-white mb-3 tracking-tight leading-none">
-//                     {shouldAnimate ? (
+//                   <div className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-2 tracking-tight leading-none">
+//                     {isAnimated ? (
 //                       <>
-//                         <Counter value={numberPart} duration={2.8} />
+//                         <Counter value={numericValue} duration={2.6} />
 //                         {item.num.includes("+") && (
 //                           <span className="text-red-500">+</span>
 //                         )}
@@ -664,17 +671,17 @@
 //                         )}
 //                       </>
 //                     ) : (
-//                       <span>
-//                         24
-//                         <span className="text-red-500 mx-1.5 text-5xl md:text-6xl font-black">
+//                       <span className="flex items-baseline justify-center gap-1">
+//                         <span>24</span>
+//                         <span className="text-red-500 text-6xl font-black">
 //                           /
 //                         </span>
-//                         7
+//                         <span>7</span>
 //                       </span>
 //                     )}
 //                   </div>
 
-//                   <p className="text-gray-400 text-lg font-medium mt-2">
+//                   <p className="text-gray-400 text-lg md:text-xl font-medium mt-3">
 //                     {item.label}
 //                   </p>
 //                 </motion.div>
@@ -857,7 +864,7 @@
 //                       Driving strategic growth, innovation, and strong client
 //                       partnerships while shaping the company’s long-term vision
 //                       and success.
-//                     </p>{" "}
+//                     </p>
 //                     <div className="flex justify-center gap-6 mt-4">
 //                       <a
 //                         href="https://www.linkedin.com/in/aley-nabi-profile"
@@ -957,7 +964,7 @@
 //           </section>
 
 //           {/* ==================== OUR TEAM SECTION ==================== */}
-//        <section className="py-16 px-5 sm:px-8">
+//           <section className="py-16 px-5 sm:px-8">
 //             <div className="max-w-7xl mx-auto">
 //               <motion.div
 //                 initial="hidden"
@@ -1086,6 +1093,7 @@ import {
 } from "framer-motion";
 import {
   ArrowRight,
+  ChevronDown,
   Code,
   Headphones,
   ShieldCheck,
@@ -1114,7 +1122,8 @@ import MdImg from "./Mobile/img/Md.jpg";
 import CeoImg from "./Mobile/img/CEO.jpg";
 import CtoImg from "./Mobile/img/CTO.jpg";
 import OurTeam from "./Mobile/img/OurTeam.jpg";
-import OurTeam2 from "./Mobile/img/OurTeam2.jpg";
+import OurTeam2 from "./Mobile/img/silder.jpeg";
+import OurTeam3 from "./Mobile/img/silder3.jpeg";
 
 function Counter({ value, duration = 2.5 }) {
   const count = useMotionValue(0);
@@ -1244,7 +1253,11 @@ const fadeInUp = {
 
 const fadeInLeft = {
   hidden: { opacity: 0, x: -60 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.8, ease: "easeOut" }
+  }
 };
 
 const fadeInRight = {
@@ -1286,6 +1299,25 @@ export default function About() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
+  // ──── NEW: State & Auto-swap for team images ────
+  const teamImages = [OurTeam2, OurTeam3];
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveImageIndex((prev) => (prev + 1) % teamImages.length);
+    }, 4800); // change image every 4.8 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const imageVariants = {
+    initial: { opacity: 0, x: 40 },
+    animate: { opacity: 1, x: 0, transition: { duration: 1.1, ease: "easeOut" } },
+    exit: { opacity: 0, x: -40, transition: { duration: 1.1, ease: "easeIn" } },
+  };
+  // ──────────────────────────────────────────────
+
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveTestimonial((prev) => (prev + 1) % 3);
@@ -1297,6 +1329,9 @@ export default function About() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+
+  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -1304,10 +1339,7 @@ export default function About() {
     setSuccess(false);
 
     try {
-      await axios.post(
-        "https://atla-knots-admin.onrender.com/query/create",
-        formData
-      );
+      await axios.post("http://localhost:8000/query/create", formData);
 
       setSuccess(true);
       setFormData({
@@ -1329,6 +1361,93 @@ export default function About() {
     }
   };
 
+  const staggerContainer = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
+
+
+
+const FAQAccordion = () => {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const faqs = [
+    {
+      question: "What kind of projects do you take?",
+      answer:
+        "We handle custom web & mobile applications, enterprise software, government / PSU compliant systems, cloud migrations, legacy modernization, and full digital transformation initiatives.",
+    },
+    {
+      question: "Do you provide maintenance after launch?",
+      answer:
+        "Yes — we offer comprehensive Application Maintenance Services (AMS) including proactive monitoring, bug fixes, performance optimization, security patches, and regular updates.",
+    },
+    {
+      question: "What are your BPO working hours?",
+      answer:
+        "We provide 24/7 support coverage with multiple shifts. Most clients choose 24×5 or 24×7 depending on their time zone and SLA requirements.",
+    },
+    {
+      question: "Which technologies do you work with?",
+      answer:
+        "Frontend: React, Next.js, TypeScript | Backend: Java + Spring Boot, Node.js, Python | Databases: PostgreSQL, MongoDB, MySQL | Cloud: AWS, Azure, GCP | Others: Docker, Kubernetes, CI/CD pipelines.",
+    },
+    {
+      question: "How do you ensure data security & compliance?",
+      answer:
+        "We follow ISO 27001 practices, implement encryption at rest & in transit, conduct regular security audits, follow GDPR / DPDP / IT Act guidelines (where applicable), and provide role-based access control.",
+    },
+  ];
+
+  return (
+    <div className="space-y-5">
+      {faqs.map((faq, index) => (
+        <div
+          key={index}
+          className="group bg-gray-950/75 backdrop-blur-lg border border-red-900/50 rounded-2xl overflow-hidden shadow-xl shadow-black/40 hover:shadow-red-900/40 transition-all duration-300"
+        >
+          <button
+            onClick={() => setOpenIndex(openIndex === index ? null : index)}
+            className="w-full px-6 md:px-8 py-6 text-left flex items-center justify-between hover:bg-red-950/40 transition-colors duration-300"
+          >
+            <span className="text-xl md:text-2xl font-semibold text-white group-hover:text-red-300 transition-colors">
+              {faq.question}
+            </span>
+            <ChevronDown
+              className={`w-7 h-7 md:w-8 md:h-8 text-red-400 flex-shrink-0 transition-transform duration-400 ${
+                openIndex === index ? 'rotate-180 scale-110' : 'scale-100'
+              }`}
+            />
+          </button>
+
+          <motion.div
+            initial={false}
+            animate={{ 
+              height: openIndex === index ? 'auto' : 0,
+              opacity: openIndex === index ? 1 : 0 
+            }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 md:px-8 pb-6 pt-3 text-gray-200 leading-relaxed text-base md:text-lg border-t border-red-900/40">
+              {faq.answer}
+            </div>
+          </motion.div>
+        </div>
+
+        
+      ))}
+    </div>
+  );
+};
   const testimonials = [
     {
       text: "The website exceeded our expectations. The design is clean, professional, and helped us get more leads. Highly recommended!”",
@@ -1423,7 +1542,7 @@ export default function About() {
                   Get Started
                 </button>
               </div>
-              <div className="w-full md:w-7/12 self-end order-1 md:order-2">
+              <div className="w-full md:w-11/12 self-end justify-items-end order-1 md:order-2">
                 <img
                   src={img4}
                   alt="Collaboration"
@@ -1633,29 +1752,40 @@ export default function About() {
             variants={staggerContainer}
             className="grid md:grid-cols-2 gap-8 items-center mb-12"
           >
-            <motion.div variants={fadeInLeft} className="space-y-6">
+            <motion.div
+              variants={fadeInLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
               <h5 className="text-red-400 font-semibold text-xl">
                 About Our Solution
               </h5>
+
               <h2 className="text-4xl md:text-5xl font-bold">
                 #1 Partner For Your Business Growth
               </h2>
+
               <p className="text-gray-300 text-lg leading-relaxed">
                 We deliver cutting-edge technology solutions that transform
                 businesses. From custom software development to 24/7 BPO
                 support, our team ensures your digital infrastructure is robust,
                 scalable, and secure.
               </p>
+
               <div className="grid grid-cols-2 gap-8 my-8">
                 <div>
                   <div className="text-red-500 text-4xl font-black">50+</div>
                   <p className="text-gray-400">Projects Delivered</p>
                 </div>
+
                 <div>
                   <div className="text-red-500 text-4xl font-black">100+</div>
                   <p className="text-gray-400">Happy Clients</p>
                 </div>
               </div>
+
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="px-10 py-4 bg-red-600 hover:bg-red-700 rounded-full text-lg font-semibold transition"
@@ -1664,16 +1794,48 @@ export default function About() {
               </button>
             </motion.div>
 
-            <motion.div variants={fadeInRight}>
-              <img
-                src={OurTeam2}
-                alt="Team working"
-                className="rounded-2xl shadow-2xl w-full object-cover border border-red-900/30"
-              />
+            {/* ──────────────────────────────────────────────── */}
+            {/*               CAROUSEL WITH TWO IMAGES             */}
+            {/* ──────────────────────────────────────────────── */}
+            <motion.div
+              variants={fadeInLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="relative rounded-2xl shadow-2xl overflow-hidden border border-red-900/30 aspect-[4/3] md:aspect-[5/4] lg:aspect-[3/2]"
+            >
+              <AnimatePresence initial={false} mode="wait">
+                <motion.img
+                  key={activeImageIndex}
+                  src={teamImages[activeImageIndex]}
+                  alt="Our team working"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  variants={imageVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                />
+              </AnimatePresence>
+
+              {/* Optional navigation dots */}
+              <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2.5 z-10">
+                {teamImages.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveImageIndex(idx)}
+                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                      idx === activeImageIndex
+                        ? "bg-red-500 scale-125 shadow-md shadow-red-600/50"
+                        : "bg-white/50 hover:bg-white/80"
+                    }`}
+                    aria-label={`Go to image ${idx + 1}`}
+                  />
+                ))}
+              </div>
             </motion.div>
           </motion.div>
 
-          {/* Stats Cards - FIXED VERSION */}
+          {/* Stats Cards */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -1703,13 +1865,19 @@ export default function About() {
                     {isAnimated ? (
                       <>
                         <Counter value={numericValue} duration={2.6} />
-                        {item.num.includes("+") && <span className="text-red-500">+</span>}
-                        {item.num.includes("%") && <span className="text-red-500">%</span>}
+                        {item.num.includes("+") && (
+                          <span className="text-red-500">+</span>
+                        )}
+                        {item.num.includes("%") && (
+                          <span className="text-red-500">%</span>
+                        )}
                       </>
                     ) : (
                       <span className="flex items-baseline justify-center gap-1">
                         <span>24</span>
-                        <span className="text-red-500 text-6xl font-black">/</span>
+                        <span className="text-red-500 text-6xl font-black">
+                          /
+                        </span>
                         <span>7</span>
                       </span>
                     )}
@@ -2078,8 +2246,34 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Final CTA */}
-          <motion.div
+
+           
+          
+                    <div className="relative z-10 max-w-6xl mx-auto">
+                      <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-80px" }}
+                        variants={staggerContainer}
+                      >
+                        <motion.h2
+                          variants={fadeInUp}
+                          className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center mb-6 md:mb-8 tracking-tight"
+                        >
+                          FREQUENTLY <span className="text-red-500">ASKED</span> QUESTIONS
+                        </motion.h2>
+          
+                        <motion.p
+                          variants={fadeInUp}
+                          className="text-lg sm:text-xl md:text-2xl text-gray-300 text-center mb-12 md:mb-16 font-light max-w-4xl mx-auto"
+                        >
+                          Got questions? We've got clear, straightforward answers.
+                        </motion.p>
+          
+                        <FAQAccordion />
+                      </motion.div>
+
+                       <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -2100,6 +2294,10 @@ export default function About() {
               LET'S START THE CONVERSATION →
             </button>
           </motion.div>
+                    </div>
+
+          {/* Final CTA */}
+         
         </div>
       </section>
     </div>

@@ -15,7 +15,7 @@
 //         setError(null);
 
 //         // Using axios — cleaner syntax, auto JSON, better errors
-//         const { data: result } = await axios.get("https://atla-knots-admin.onrender.com/tech");
+//         const { data: result } = await axios.get("http://localhost:8000/tech");
 
 //         let items = result.data || [];
 

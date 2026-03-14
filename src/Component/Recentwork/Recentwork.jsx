@@ -73,7 +73,7 @@ const portfolioItems = [
   },
   {
     id: "1517",
-    title: "Aaalay",
+    title: "Vidoo",
     categories: ["Consultancy", "SAAS", "Software", "UI/UX"],
     image: img9,
     link: "https://aaalay.com",

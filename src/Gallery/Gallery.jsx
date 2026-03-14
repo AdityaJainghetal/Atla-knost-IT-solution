@@ -61,7 +61,7 @@ const Gallery = () => {
         </p>
       )}
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-20xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {displayImages.map((src, index) => (
             <div

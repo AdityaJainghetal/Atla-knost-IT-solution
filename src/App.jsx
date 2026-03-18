@@ -112,6 +112,8 @@ import GraphicDesigning from "./Component/Graphic/Graphic";
 import SoftwareDevelopment from "./Component/SoftwareDevelopment/SoftwareDevelopment";
 import MobileAppDevelopment from "./Component/SoftwareDevelopment/MobileAppDevelopment";
 import ERPDevelopment from "./Component/SoftwareDevelopment/ERPDevelopment";
+import PaidAdv from "./Component/PaidAdvatisment/PaidAdv";
+import LocalMarketing from "./Component/LocalMarketing/LocalMarketing";
 
 const App = () => {
   return (
@@ -157,6 +159,12 @@ const App = () => {
             <Route path="software" element={<SoftwareDevelopment />} />
             <Route path="mobiledevelopment" element={<MobileAppDevelopment />} />
             <Route path="erpdevelopment" element={<ERPDevelopment />} />
+            <Route path="graphicdesign" element={<ERPDevelopment />} />
+            <Route path="paidadv" element={<PaidAdv />} />
+            <Route path="localmarketing" element={<LocalMarketing />} />
+
+
+
 
           </Route>
         </Routes>

@@ -35,9 +35,9 @@ const navItems = [
         dropdownItems: [
           { name: "SEO Services", path: "/seo" },
           { name: "Social Media Marketing", path: "/smm" },
-          { name: "Paid Advertisement", path: "/webdeveloper" },
-          { name: "Graphic design", path: "/webdeveloper" },
-          { name: "Local Marketing", path: "/webdeveloper" },
+          { name: "Paid Advertisement", path: "/paidadv" },
+          { name: "Graphic design", path: "/graphicdesign" },
+          { name: "Local Marketing", path: "/localmarketing" },
         ],
       },
       {

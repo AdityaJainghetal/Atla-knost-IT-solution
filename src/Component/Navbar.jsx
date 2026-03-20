@@ -59,7 +59,7 @@ const navItems = [
         path: "/graphics" ,
          hasDropdown: true,
         dropdownItems: [
-          { name: "UI/US Design", path: "/seo" },
+          { name: "UI/UX Design", path: "/seo" },
           { name: "Web Design", path: "/seo" },
           { name: "Ecommerce Design", path: "/seo" },
           { name: "Mobile App Design", path: "/seo" },

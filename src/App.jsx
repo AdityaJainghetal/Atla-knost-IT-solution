@@ -59,15 +59,6 @@
 //             <Route path="/mobiledevelopment" element={<MobileAppDevelopment/>}/>
 //             <Route path="/erpdevelopment" element={<ERPDevelopment/>}/>
 
-
-
-
-
-
-
-            
-
-            
 //           </Route>
 //         </Routes>
 //       </BrowserRouter>
@@ -77,7 +68,6 @@
 // };
 
 // export default App;
-
 
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -114,12 +104,15 @@ import MobileAppDevelopment from "./Component/SoftwareDevelopment/MobileAppDevel
 import ERPDevelopment from "./Component/SoftwareDevelopment/ERPDevelopment";
 import PaidAdv from "./Component/PaidAdvatisment/PaidAdv";
 import LocalMarketing from "./Component/LocalMarketing/LocalMarketing";
+import EcommerceDevelopment from "./Component/SoftwareDevelopment/EcommerceDevelopment";
+import CloudSolutions from "./Component/SoftwareDevelopment/CloudSolutions";
+import AIServices from "./Component/SoftwareDevelopment/AIServices";
+import SocialMediaMarketing from "./Component/SoftwareDevelopment/SocialMediaMarketing";
 
 const App = () => {
   return (
     <HelmetProvider>
       <BrowserRouter>
-
         <Helmet>
           <link rel="canonical" href="https://www.atlaknots.com/" />
           <title>AtlaKnots - Digital Solutions</title>
@@ -127,7 +120,6 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<Layout />}>
-
             <Route index element={<Home />} />
             <Route path="home" element={<Home />} />
 
@@ -157,20 +149,27 @@ const App = () => {
             <Route path="graphics" element={<GraphicDesigning />} />
 
             <Route path="software" element={<SoftwareDevelopment />} />
-            <Route path="mobiledevelopment" element={<MobileAppDevelopment />} />
+            <Route
+              path="mobiledevelopment"
+              element={<MobileAppDevelopment />}
+            />
             <Route path="erpdevelopment" element={<ERPDevelopment />} />
             <Route path="graphicdesign" element={<ERPDevelopment />} />
             <Route path="paidadv" element={<PaidAdv />} />
             <Route path="localmarketing" element={<LocalMarketing />} />
+            <Route path="ecommercedevelopment" element={<EcommerceDevelopment />} />
+
+            <Route path="cloudsolutions" element={<CloudSolutions />} />
 
 
+            <Route path="ai-mlservice" element={<AIServices />} />
+            <Route path="socialmediamarketing" element={<SocialMediaMarketing />} />
 
 
 
 
           </Route>
         </Routes>
-
       </BrowserRouter>
 
       <ToastContainer />

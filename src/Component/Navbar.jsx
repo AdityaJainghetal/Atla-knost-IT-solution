@@ -34,7 +34,7 @@ const navItems = [
         hasDropdown: true,
         dropdownItems: [
           { name: "SEO Services", path: "/seo" },
-          { name: "Social Media Marketing", path: "/smm" },
+          { name: "Social Media Marketing", path: "/socialmediamarketing" },
           { name: "Paid Advertisement", path: "/paidadv" },
           { name: "Graphic design", path: "/graphicdesign" },
           { name: "Local Marketing", path: "/localmarketing" },
@@ -45,14 +45,13 @@ const navItems = [
         path: "/software",
         hasDropdown: true,
         dropdownItems: [
-          { name: "Web development", path: "/seo" },
-          { name: "Software development", path: "/seo" },
+         
+          { name: "Software development", path: "/software" },
           { name: "Mobile App development", path: "/mobiledevelopment" },
-          { name: "E-commerce", path: "/seoa" },
+          { name: "E-commerce", path: "/ecommercedevelopment" },
           { name: "Custom ERP Software", path: "/erpdevelopment" },
-          { name: "Custom CRM Software", path: "/seo" },
-          { name: "Cloud Services", path: "/seod" },
-          { name: "AI & Machine Learning", path: "/seow" },
+          { name: "Cloud Services", path: "/cloudsolutions" },
+          { name: "AI & Machine Learning", path: "/ai-mlservice" },
         ],
       },
 

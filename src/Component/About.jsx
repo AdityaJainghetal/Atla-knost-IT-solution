@@ -1,3 +1,6 @@
+
+
+
 // import React, {
 //   useCallback,
 //   useEffect,
@@ -18,6 +21,7 @@
 // } from "framer-motion";
 // import {
 //   ArrowRight,
+//   ChevronDown,
 //   Code,
 //   Headphones,
 //   ShieldCheck,
@@ -47,16 +51,13 @@
 // import CtoImg from "./Mobile/img/CTO.jpg";
 // import OurTeam from "./Mobile/img/OurTeam.jpg";
 // import OurTeam2 from "./Mobile/img/silder.jpeg";
-
 // import OurTeam3 from "./Mobile/img/silder3.jpeg";
-
-
-
 
 // function Counter({ value, duration = 2.5 }) {
 //   const count = useMotionValue(0);
 //   const rounded = useTransform(count, Math.round);
 //   const ref = useRef(null);
+//   const [showScrollTop, setShowScrollTop] = useState(false);
 //   const isInView = useInView(ref, { once: true });
 
 //   useEffect(() => {
@@ -72,6 +73,23 @@
 //     return () => controls.stop();
 //   }, [isInView, value, duration, count]);
 
+
+//    useEffect(() => {
+//       const handleScroll = () => {
+//         setShowScrollTop(window.scrollY > 400);
+//       };
+  
+//       window.addEventListener('scroll', handleScroll);
+//       return () => window.removeEventListener('scroll', handleScroll);
+//     }, []);
+  
+//     const scrollToTop = () => {
+//       window.scrollTo({
+//         top: 0,
+//         behavior: 'smooth',
+//       });
+//     };
+  
 //   return (
 //     <div ref={ref} className="inline-block">
 //       <motion.span>{rounded}</motion.span>
@@ -188,11 +206,6 @@
 //   }
 // };
 
-// // const fadeInLeft = {
-// //   hidden: { opacity: 0, x: -60 },
-// //   visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
-// // };
-
 // const fadeInRight = {
 //   hidden: { opacity: 0, x: 60 },
 //   visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
@@ -211,6 +224,24 @@
 //   hidden: {},
 //   visible: { transition: { staggerChildren: 0.15 } },
 // };
+
+
+
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       setShowScrollTop(window.scrollY > 400);
+//     };
+
+//     window.addEventListener('scroll', handleScroll);
+//     return () => window.removeEventListener('scroll', handleScroll);
+//   }, []);
+
+//   const scrollToTop = () => {
+//     window.scrollTo({
+//       top: 0,
+//       behavior: 'smooth',
+//     });
+//   };
 
 // export default function About() {
 //   const navigate = useNavigate();
@@ -232,6 +263,25 @@
 //   const [success, setSuccess] = useState(false);
 //   const [error, setError] = useState("");
 
+//   // ──── NEW: State & Auto-swap for team images ────
+//   const teamImages = [OurTeam2, OurTeam3];
+//   const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       setActiveImageIndex((prev) => (prev + 1) % teamImages.length);
+//     }, 4800); // change image every 4.8 seconds
+
+//     return () => clearInterval(interval);
+//   }, []);
+
+//   const imageVariants = {
+//     initial: { opacity: 0, x: 40 },
+//     animate: { opacity: 1, x: 0, transition: { duration: 1.1, ease: "easeOut" } },
+//     exit: { opacity: 0, x: -40, transition: { duration: 1.1, ease: "easeIn" } },
+//   };
+//   // ──────────────────────────────────────────────
+
 //   useEffect(() => {
 //     const timer = setInterval(() => {
 //       setActiveTestimonial((prev) => (prev + 1) % 3);
@@ -242,6 +292,9 @@
 //   const handleChange = (e) => {
 //     setFormData({ ...formData, [e.target.name]: e.target.value });
 //   };
+
+
+  
 
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
@@ -272,6 +325,93 @@
 //     }
 //   };
 
+//   const staggerContainer = {
+//   hidden: { opacity: 1 },
+//   visible: {
+//     opacity: 1,
+//     transition: { staggerChildren: 0.15 },
+//   },
+// };
+
+// const fadeInUp = {
+//   hidden: { opacity: 0, y: 40 },
+//   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+// };
+
+
+
+// const FAQAccordion = () => {
+//   const [openIndex, setOpenIndex] = useState(null);
+
+//   const faqs = [
+//     {
+//       question: "What kind of projects do you take?",
+//       answer:
+//         "We handle custom web & mobile applications, enterprise software, government / PSU compliant systems, cloud migrations, legacy modernization, and full digital transformation initiatives.",
+//     },
+//     {
+//       question: "Do you provide maintenance after launch?",
+//       answer:
+//         "Yes — we offer comprehensive Application Maintenance Services (AMS) including proactive monitoring, bug fixes, performance optimization, security patches, and regular updates.",
+//     },
+//     {
+//       question: "What are your BPO working hours?",
+//       answer:
+//         "We provide 24/7 support coverage with multiple shifts. Most clients choose 24×5 or 24×7 depending on their time zone and SLA requirements.",
+//     },
+//     {
+//       question: "Which technologies do you work with?",
+//       answer:
+//         "Frontend: React, Next.js, TypeScript | Backend: Java + Spring Boot, Node.js, Python | Databases: PostgreSQL, MongoDB, MySQL | Cloud: AWS, Azure, GCP | Others: Docker, Kubernetes, CI/CD pipelines.",
+//     },
+//     {
+//       question: "How do you ensure data security & compliance?",
+//       answer:
+//         "We follow ISO 27001 practices, implement encryption at rest & in transit, conduct regular security audits, follow GDPR / DPDP / IT Act guidelines (where applicable), and provide role-based access control.",
+//     },
+//   ];
+
+//   return (
+//     <div className="space-y-5">
+//       {faqs.map((faq, index) => (
+//         <div
+//           key={index}
+//           className="group bg-gray-950/75 backdrop-blur-lg border border-red-900/50 rounded-2xl overflow-hidden shadow-xl shadow-black/40 hover:shadow-red-900/40 transition-all duration-300"
+//         >
+//           <button
+//             onClick={() => setOpenIndex(openIndex === index ? null : index)}
+//             className="w-full px-6 md:px-8 py-6 text-left flex items-center justify-between hover:bg-red-950/40 transition-colors duration-300"
+//           >
+//             <span className="text-xl md:text-2xl font-semibold text-white group-hover:text-red-300 transition-colors">
+//               {faq.question}
+//             </span>
+//             <ChevronDown
+//               className={`w-7 h-7 md:w-8 md:h-8 text-red-400 flex-shrink-0 transition-transform duration-400 ${
+//                 openIndex === index ? 'rotate-180 scale-110' : 'scale-100'
+//               }`}
+//             />
+//           </button>
+
+//           <motion.div
+//             initial={false}
+//             animate={{ 
+//               height: openIndex === index ? 'auto' : 0,
+//               opacity: openIndex === index ? 1 : 0 
+//             }}
+//             transition={{ duration: 0.4, ease: "easeInOut" }}
+//             className="overflow-hidden"
+//           >
+//             <div className="px-6 md:px-8 pb-6 pt-3 text-gray-200 leading-relaxed text-base md:text-lg border-t border-red-900/40">
+//               {faq.answer}
+//             </div>
+//           </motion.div>
+//         </div>
+
+        
+//       ))}
+//     </div>
+//   );
+// };
 //   const testimonials = [
 //     {
 //       text: "The website exceeded our expectations. The design is clean, professional, and helped us get more leads. Highly recommended!”",
@@ -366,7 +506,7 @@
 //                   Get Started
 //                 </button>
 //               </div>
-//               <div className="w-full md:w-7/12 self-end order-1 md:order-2">
+//               <div className="w-full md:w-11/12 self-end justify-items-end order-1 md:order-2">
 //                 <img
 //                   src={img4}
 //                   alt="Collaboration"
@@ -576,64 +716,90 @@
 //             variants={staggerContainer}
 //             className="grid md:grid-cols-2 gap-8 items-center mb-12"
 //           >
-//           <motion.div
-//   variants={fadeInLeft}
-//   initial="hidden"
-//   whileInView="visible"
-//   viewport={{ once: true }}
-//   className="space-y-6"
-// >
-//   <h5 className="text-red-400 font-semibold text-xl">
-//     About Our Solution
-//   </h5>
+//             <motion.div
+//               variants={fadeInLeft}
+//               initial="hidden"
+//               whileInView="visible"
+//               viewport={{ once: true }}
+//               className="space-y-6"
+//             >
+//               <h5 className="text-red-400 font-semibold text-xl">
+//                 About Our Solution
+//               </h5>
 
-//   <h2 className="text-4xl md:text-5xl font-bold">
-//     #1 Partner For Your Business Growth
-//   </h2>
+//               <h2 className="text-4xl md:text-5xl font-bold">
+//                 #1 Partner For Your Business Growth
+//               </h2>
 
-//   <p className="text-gray-300 text-lg leading-relaxed">
-//     We deliver cutting-edge technology solutions that transform
-//     businesses. From custom software development to 24/7 BPO
-//     support, our team ensures your digital infrastructure is robust,
-//     scalable, and secure.
-//   </p>
+//               <p className="text-gray-300 text-lg leading-relaxed">
+//                 We deliver cutting-edge technology solutions that transform
+//                 businesses. From custom software development to 24/7 BPO
+//                 support, our team ensures your digital infrastructure is robust,
+//                 scalable, and secure.
+//               </p>
 
-//   <div className="grid grid-cols-2 gap-8 my-8">
-//     <div>
-//       <div className="text-red-500 text-4xl font-black">50+</div>
-//       <p className="text-gray-400">Projects Delivered</p>
-//     </div>
+//               <div className="grid grid-cols-2 gap-8 my-8">
+//                 <div>
+//                   <div className="text-red-500 text-4xl font-black">50+</div>
+//                   <p className="text-gray-400">Projects Delivered</p>
+//                 </div>
 
-//     <div>
-//       <div className="text-red-500 text-4xl font-black">100+</div>
-//       <p className="text-gray-400">Happy Clients</p>
-//     </div>
-//   </div>
+//                 <div>
+//                   <div className="text-red-500 text-4xl font-black">100+</div>
+//                   <p className="text-gray-400">Happy Clients</p>
+//                 </div>
+//               </div>
 
-//   <button
-//     onClick={() => setIsModalOpen(true)}
-//     className="px-10 py-4 bg-red-600 hover:bg-red-700 rounded-full text-lg font-semibold transition"
-//   >
-//     Read More →
-//   </button>
-// </motion.div>
+//               <button
+//                 onClick={() => setIsModalOpen(true)}
+//                 className="px-10 py-4 bg-red-600 hover:bg-red-700 rounded-full text-lg font-semibold transition"
+//               >
+//                 Read More →
+//               </button>
+//             </motion.div>
 
-//             <motion.div variants={fadeInLeft}>
-//               <img
-//                 src={OurTeam2}
-//                 alt="Team working"
-//                 className="rounded-2xl shadow-2xl w-full object-cover border border-red-900/30"
-//               />
+//             {/* ──────────────────────────────────────────────── */}
+//             {/*               CAROUSEL WITH TWO IMAGES             */}
+//             {/* ──────────────────────────────────────────────── */}
+//             <motion.div
+//               variants={fadeInLeft}
+//               initial="hidden"
+//               whileInView="visible"
+//               viewport={{ once: true }}
+//               className="relative rounded-2xl shadow-2xl overflow-hidden border border-red-900/30 aspect-[4/3] md:aspect-[5/4] lg:aspect-[3/2]"
+//             >
+//               <AnimatePresence initial={false} mode="wait">
+//                 <motion.img
+//                   key={activeImageIndex}
+//                   src={teamImages[activeImageIndex]}
+//                   alt="Our team working"
+//                   className="absolute inset-0 w-full h-full object-cover"
+//                   variants={imageVariants}
+//                   initial="initial"
+//                   animate="animate"
+//                   exit="exit"
+//                 />
+//               </AnimatePresence>
 
-//                <img
-//                 src={OurTeam3}
-//                 alt="Team working"
-//                 className="rounded-2xl shadow-2xl w-full object-cover border border-red-900/30"
-//               />
+//               {/* Optional navigation dots */}
+//               <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2.5 z-10">
+//                 {teamImages.map((_, idx) => (
+//                   <button
+//                     key={idx}
+//                     onClick={() => setActiveImageIndex(idx)}
+//                     className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+//                       idx === activeImageIndex
+//                         ? "bg-red-500 scale-125 shadow-md shadow-red-600/50"
+//                         : "bg-white/50 hover:bg-white/80"
+//                     }`}
+//                     aria-label={`Go to image ${idx + 1}`}
+//                   />
+//                 ))}
+//               </div>
 //             </motion.div>
 //           </motion.div>
 
-//           {/* Stats Cards - FIXED VERSION */}
+//           {/* Stats Cards */}
 //           <motion.div
 //             initial="hidden"
 //             whileInView="visible"
@@ -775,190 +941,190 @@
 //                 </motion.div>
 
 //                 {/* Managing Director */}
-//                 <motion.div
-//                   variants={scaleIn}
-//                   whileHover={{ scale: 1.05, y: -10 }}
-//                   className="bg-gray-900/60 backdrop-blur-sm border border-red-900/30 rounded-2xl overflow-hidden shadow-xl shadow-red-950/30 transition-all duration-300"
-//                 >
-//                   <div className="relative">
-//                     <img
-//                       src={MdImg}
-//                       alt="Aley Nabi - Managing Director"
-//                       className="w-full h-64 object-cover"
-//                     />
-//                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
-//                   </div>
-//                   <div className="p-6 text-center">
-//                     <h3 className="text-2xl font-bold mb-1 text-white">
-//                       Aley Nabi
-//                     </h3>
-//                     <p className="text-red-400 font-semibold mb-2">
-//                       Managing Director
-//                     </p>
-//                     <p className="text-gray-400 text-sm mb-3">
-//                       10+ Years of Experience
-//                     </p>
-//                     <p className="text-gray-300 text-sm">
-//                       Expert in operational excellence and client relations,
-//                       ensuring seamless delivery of our services while fostering
-//                       strong partnerships.
-//                     </p>
-//                     <div className="flex justify-center gap-6 mt-4">
-//                       <a
-//                         href="https://www.linkedin.com/in/aley-nabi-profile"
-//                         target="_blank"
-//                         rel="noopener noreferrer"
-//                         className="text-gray-400 hover:text-red-500 transition-colors"
-//                       >
-//                         <svg
-//                           className="w-7 h-7"
-//                           fill="currentColor"
-//                           viewBox="0 0 24 24"
-//                         >
-//                           <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-//                         </svg>
-//                       </a>
-//                       <a
-//                         href="https://github.com/aleynabi-atlaknots"
-//                         target="_blank"
-//                         rel="noopener noreferrer"
-//                         className="text-gray-400 hover:text-red-500 transition-colors"
-//                       >
-//                         <svg
-//                           className="w-7 h-7"
-//                           fill="currentColor"
-//                           viewBox="0 0 24 24"
-//                         >
-//                           <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
-//                         </svg>
-//                       </a>
-//                     </div>
-//                   </div>
-//                 </motion.div>
+                // <motion.div
+                //   variants={scaleIn}
+                //   whileHover={{ scale: 1.05, y: -10 }}
+                //   className="bg-gray-900/60 backdrop-blur-sm border border-red-900/30 rounded-2xl overflow-hidden shadow-xl shadow-red-950/30 transition-all duration-300"
+                // >
+                //   <div className="relative">
+                //     <img
+                //       src={MdImg}
+                //       alt="Aley Nabi - Managing Director"
+                //       className="w-full h-64 object-cover"
+                //     />
+                //     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                //   </div>
+                //   <div className="p-6 text-center">
+                //     <h3 className="text-2xl font-bold mb-1 text-white">
+                //       Aley Nabi
+                //     </h3>
+                //     <p className="text-red-400 font-semibold mb-2">
+                //       Managing Director
+                //     </p>
+                //     <p className="text-gray-400 text-sm mb-3">
+                //       10+ Years of Experience
+                //     </p>
+                //     <p className="text-gray-300 text-sm">
+                //       Expert in operational excellence and client relations,
+                //       ensuring seamless delivery of our services while fostering
+                //       strong partnerships.
+                //     </p>
+                //     <div className="flex justify-center gap-6 mt-4">
+                //       <a
+                //         href="https://www.linkedin.com/in/aley-nabi-profile"
+                //         target="_blank"
+                //         rel="noopener noreferrer"
+                //         className="text-gray-400 hover:text-red-500 transition-colors"
+                //       >
+                //         <svg
+                //           className="w-7 h-7"
+                //           fill="currentColor"
+                //           viewBox="0 0 24 24"
+                //         >
+                //           <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                //         </svg>
+                //       </a>
+                //       <a
+                //         href="https://github.com/aleynabi-atlaknots"
+                //         target="_blank"
+                //         rel="noopener noreferrer"
+                //         className="text-gray-400 hover:text-red-500 transition-colors"
+                //       >
+                //         <svg
+                //           className="w-7 h-7"
+                //           fill="currentColor"
+                //           viewBox="0 0 24 24"
+                //         >
+                //           <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                //         </svg>
+                //       </a>
+                //     </div>
+                //   </div>
+                // </motion.div>
 
-//                 {/* CEO */}
-//                 <motion.div
-//                   variants={scaleIn}
-//                   whileHover={{ scale: 1.05, y: -10 }}
-//                   className="bg-gray-900/60 backdrop-blur-sm border border-red-900/30 rounded-2xl overflow-hidden shadow-xl shadow-red-950/30 transition-all duration-300"
-//                 >
-//                   <div className="relative">
-//                     <img
-//                       src={CeoImg}
-//                       alt="Ghulam Haider - Chief Executive Officer"
-//                       className="w-full h-64 object-cover"
-//                     />
-//                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
-//                   </div>
-//                   <div className="p-6 text-center">
-//                     <h3 className="text-2xl font-bold mb-1 text-white">
-//                       Ghulam Haider
-//                     </h3>
-//                     <p className="text-red-400 font-semibold mb-2">
-//                       Chief Executive Officer
-//                     </p>
-//                     <p className="text-gray-400 text-sm mb-3">
-//                       10+ Years of Experience
-//                     </p>
-//                     <p className="text-gray-300 text-sm leading-relaxed">
-//                       Driving strategic growth, innovation, and strong client
-//                       partnerships while shaping the company’s long-term vision
-//                       and success.
-//                     </p>
-//                     <div className="flex justify-center gap-6 mt-4">
-//                       <a
-//                         href="https://www.linkedin.com/in/aley-nabi-profile"
-//                         target="_blank"
-//                         rel="noopener noreferrer"
-//                         className="text-gray-400 hover:text-red-500 transition-colors"
-//                       >
-//                         <svg
-//                           className="w-7 h-7"
-//                           fill="currentColor"
-//                           viewBox="0 0 24 24"
-//                         >
-//                           <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-//                         </svg>
-//                       </a>
-//                       <a
-//                         href="https://github.com/aleynabi-atlaknots"
-//                         target="_blank"
-//                         rel="noopener noreferrer"
-//                         className="text-gray-400 hover:text-red-500 transition-colors"
-//                       >
-//                         <svg
-//                           className="w-7 h-7"
-//                           fill="currentColor"
-//                           viewBox="0 0 24 24"
-//                         >
-//                           <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
-//                         </svg>
-//                       </a>
-//                     </div>
-//                   </div>
-//                 </motion.div>
+                // {/* CEO */}
+                // <motion.div
+                //   variants={scaleIn}
+                //   whileHover={{ scale: 1.05, y: -10 }}
+                //   className="bg-gray-900/60 backdrop-blur-sm border border-red-900/30 rounded-2xl overflow-hidden shadow-xl shadow-red-950/30 transition-all duration-300"
+                // >
+                //   <div className="relative">
+                //     <img
+                //       src={CeoImg}
+                //       alt="Ghulam Haider - Chief Executive Officer"
+                //       className="w-full h-64 object-cover"
+                //     />
+                //     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                //   </div>
+                //   <div className="p-6 text-center">
+                //     <h3 className="text-2xl font-bold mb-1 text-white">
+                //       Ghulam Haider
+                //     </h3>
+                //     <p className="text-red-400 font-semibold mb-2">
+                //       Chief Executive Officer
+                //     </p>
+                //     <p className="text-gray-400 text-sm mb-3">
+                //       10+ Years of Experience
+                //     </p>
+                //     <p className="text-gray-300 text-sm leading-relaxed">
+                //       Driving strategic growth, innovation, and strong client
+                //       partnerships while shaping the company’s long-term vision
+                //       and success.
+                //     </p>
+                //     <div className="flex justify-center gap-6 mt-4">
+                //       <a
+                //         href="https://www.linkedin.com/in/aley-nabi-profile"
+                //         target="_blank"
+                //         rel="noopener noreferrer"
+                //         className="text-gray-400 hover:text-red-500 transition-colors"
+                //       >
+                //         <svg
+                //           className="w-7 h-7"
+                //           fill="currentColor"
+                //           viewBox="0 0 24 24"
+                //         >
+                //           <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                //         </svg>
+                //       </a>
+                //       <a
+                //         href="https://github.com/aleynabi-atlaknots"
+                //         target="_blank"
+                //         rel="noopener noreferrer"
+                //         className="text-gray-400 hover:text-red-500 transition-colors"
+                //       >
+                //         <svg
+                //           className="w-7 h-7"
+                //           fill="currentColor"
+                //           viewBox="0 0 24 24"
+                //         >
+                //           <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                //         </svg>
+                //       </a>
+                //     </div>
+                //   </div>
+                // </motion.div>
 
-//                 {/* CTO */}
-//                 <motion.div
-//                   variants={scaleIn}
-//                   whileHover={{ scale: 1.05, y: -10 }}
-//                   className="bg-gray-900/60 backdrop-blur-sm border border-red-900/30 rounded-2xl overflow-hidden shadow-xl shadow-red-950/30 transition-all duration-300"
-//                 >
-//                   <div className="relative">
-//                     <img
-//                       src={CtoImg}
-//                       alt="Azhar Uddin - Chief Technical Officer"
-//                       className="w-full h-64 object-cover"
-//                     />
-//                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
-//                   </div>
-//                   <div className="p-6 text-center">
-//                     <h3 className="text-2xl font-bold mb-1 text-white">
-//                       Azhar Uddin
-//                     </h3>
-//                     <p className="text-red-400 font-semibold mb-2">
-//                       Chief Technical Officer
-//                     </p>
-//                     <p className="text-gray-400 text-sm mb-3">
-//                       7+ Years of Experience
-//                     </p>
-//                     <p className="text-gray-300 text-sm leading-relaxed">
-//                       Leading technical innovation, architecture, and
-//                       engineering teams to deliver cutting-edge solutions and
-//                       maintain technological excellence.
-//                     </p>
-//                     <div className="flex justify-center gap-6 mt-4">
-//                       <a
-//                         href="https://www.linkedin.com/in/aley-nabi-profile"
-//                         target="_blank"
-//                         rel="noopener noreferrer"
-//                         className="text-gray-400 hover:text-red-500 transition-colors"
-//                       >
-//                         <svg
-//                           className="w-7 h-7"
-//                           fill="currentColor"
-//                           viewBox="0 0 24 24"
-//                         >
-//                           <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-//                         </svg>
-//                       </a>
-//                       <a
-//                         href="https://github.com/aleynabi-atlaknots"
-//                         target="_blank"
-//                         rel="noopener noreferrer"
-//                         className="text-gray-400 hover:text-red-500 transition-colors"
-//                       >
-//                         <svg
-//                           className="w-7 h-7"
-//                           fill="currentColor"
-//                           viewBox="0 0 24 24"
-//                         >
-//                           <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
-//                         </svg>
-//                       </a>
-//                     </div>
-//                   </div>
-//                 </motion.div>
+                // {/* CTO */}
+                // <motion.div
+                //   variants={scaleIn}
+                //   whileHover={{ scale: 1.05, y: -10 }}
+                //   className="bg-gray-900/60 backdrop-blur-sm border border-red-900/30 rounded-2xl overflow-hidden shadow-xl shadow-red-950/30 transition-all duration-300"
+                // >
+                //   <div className="relative">
+                //     <img
+                //       src={CtoImg}
+                //       alt="Azhar Uddin - Chief Technical Officer"
+                //       className="w-full h-64 object-cover"
+                //     />
+                //     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                //   </div>
+                //   <div className="p-6 text-center">
+                //     <h3 className="text-2xl font-bold mb-1 text-white">
+                //       Azhar Uddin
+                //     </h3>
+                //     <p className="text-red-400 font-semibold mb-2">
+                //       Chief Technical Officer
+                //     </p>
+                //     <p className="text-gray-400 text-sm mb-3">
+                //       7+ Years of Experience
+                //     </p>
+                //     <p className="text-gray-300 text-sm leading-relaxed">
+                //       Leading technical innovation, architecture, and
+                //       engineering teams to deliver cutting-edge solutions and
+                //       maintain technological excellence.
+                //     </p>
+                //     <div className="flex justify-center gap-6 mt-4">
+                //       <a
+                //         href="https://www.linkedin.com/in/aley-nabi-profile"
+                //         target="_blank"
+                //         rel="noopener noreferrer"
+                //         className="text-gray-400 hover:text-red-500 transition-colors"
+                //       >
+                //         <svg
+                //           className="w-7 h-7"
+                //           fill="currentColor"
+                //           viewBox="0 0 24 24"
+                //         >
+                //           <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                //         </svg>
+                //       </a>
+                //       <a
+                //         href="https://github.com/aleynabi-atlaknots"
+                //         target="_blank"
+                //         rel="noopener noreferrer"
+                //         className="text-gray-400 hover:text-red-500 transition-colors"
+                //       >
+                //         <svg
+                //           className="w-7 h-7"
+                //           fill="currentColor"
+                //           viewBox="0 0 24 24"
+                //         >
+                //           <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                //         </svg>
+                //       </a>
+                //     </div>
+                //   </div>
+                // </motion.div>
 //               </div>
 //             </div>
 //           </section>
@@ -1044,8 +1210,34 @@
 //             </div>
 //           </motion.div>
 
-//           {/* Final CTA */}
-//           <motion.div
+
+           
+          
+//                     <div className="relative z-10 max-w-6xl mx-auto">
+//                       <motion.div
+//                         initial="hidden"
+//                         whileInView="visible"
+//                         viewport={{ once: true, margin: "-80px" }}
+//                         variants={staggerContainer}
+//                       >
+//                         <motion.h2
+//                           variants={fadeInUp}
+//                           className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center mb-6 md:mb-8 tracking-tight"
+//                         >
+//                           FREQUENTLY <span className="text-red-500">ASKED</span> QUESTIONS
+//                         </motion.h2>
+          
+//                         <motion.p
+//                           variants={fadeInUp}
+//                           className="text-lg sm:text-xl md:text-2xl text-gray-300 text-center mb-12 md:mb-16 font-light max-w-4xl mx-auto"
+//                         >
+//                           Got questions? We've got clear, straightforward answers.
+//                         </motion.p>
+          
+//                         <FAQAccordion />
+//                       </motion.div>
+
+//                        <motion.div
 //             initial={{ opacity: 0, y: 40 }}
 //             whileInView={{ opacity: 1, y: 0 }}
 //             viewport={{ once: true }}
@@ -1066,12 +1258,38 @@
 //               LET'S START THE CONVERSATION →
 //             </button>
 //           </motion.div>
+//                     </div>
+
+//           {/* Final CTA */}
+//            <button
+//         onClick={scrollToTop}
+//         className={`fixed bottom-6 right-6 z-50 p-4 rounded-full bg-red-600 hover:bg-red-700 text-white shadow-lg shadow-red-900/50 transition-all duration-300 hover:scale-110 active:scale-95 ${
+//           showScrollTop
+//             ? "opacity-100 translate-y-0"
+//             : "opacity-0 translate-y-16 pointer-events-none"
+//         }`}
+//         aria-label="Scroll back to top"
+//       >
+//         <svg 
+//           className="w-6 h-6" 
+//           fill="none" 
+//           stroke="currentColor" 
+//           viewBox="0 0 24 24" 
+//           xmlns="http://www.w3.org/2000/svg"
+//         >
+//           <path 
+//             strokeLinecap="round" 
+//             strokeLinejoin="round" 
+//             strokeWidth={2} 
+//             d="M5 10l7-7m0 0l7 7m-7-7v18" 
+//           />
+//         </svg>
+//       </button>
 //         </div>
 //       </section>
 //     </div>
 //   );
 // }
-
 
 import React, {
   useCallback,
@@ -1125,6 +1343,7 @@ import OurTeam from "./Mobile/img/OurTeam.jpg";
 import OurTeam2 from "./Mobile/img/silder.jpeg";
 import OurTeam3 from "./Mobile/img/silder3.jpeg";
 
+// ─── Counter Component ────────────────────────────────────────
 function Counter({ value, duration = 2.5 }) {
   const count = useMotionValue(0);
   const rounded = useTransform(count, Math.round);
@@ -1151,6 +1370,7 @@ function Counter({ value, duration = 2.5 }) {
   );
 }
 
+// ─── Animated Sphere ──────────────────────────────────────────
 const AnimatedSphere = ({ position, color }) => {
   const meshRef = useRef();
 
@@ -1246,6 +1466,7 @@ const particlesOptions = {
   detectRetina: true,
 };
 
+// Animation Variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
@@ -1253,11 +1474,7 @@ const fadeInUp = {
 
 const fadeInLeft = {
   hidden: { opacity: 0, x: -60 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.8, ease: "easeOut" }
-  }
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
 };
 
 const fadeInRight = {
@@ -1279,103 +1496,13 @@ const staggerContainer = {
   visible: { transition: { staggerChildren: 0.15 } },
 };
 
-export default function About() {
-  const navigate = useNavigate();
-
-  const particlesInit = useCallback(async (engine) => {
-    await loadSlim(engine);
-  }, []);
-
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-    category: "",
-  });
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState("");
-
-  // ──── NEW: State & Auto-swap for team images ────
-  const teamImages = [OurTeam2, OurTeam3];
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveImageIndex((prev) => (prev + 1) % teamImages.length);
-    }, 4800); // change image every 4.8 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const imageVariants = {
-    initial: { opacity: 0, x: 40 },
-    animate: { opacity: 1, x: 0, transition: { duration: 1.1, ease: "easeOut" } },
-    exit: { opacity: 0, x: -40, transition: { duration: 1.1, ease: "easeIn" } },
-  };
-  // ──────────────────────────────────────────────
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveTestimonial((prev) => (prev + 1) % 3);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-
-  
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-    setSuccess(false);
-
-    try {
-      await axios.post("http://localhost:8000/query/create", formData);
-
-      setSuccess(true);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-        category: "",
-      });
-
-      setTimeout(() => {
-        setIsModalOpen(false);
-        setSuccess(false);
-      }, 2000);
-    } catch (err) {
-      setError(err.message || "Something went wrong");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const staggerContainer = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 },
-  },
+const imageVariants = {
+  initial: { opacity: 0, x: 40 },
+  animate: { opacity: 1, x: 0, transition: { duration: 1.1, ease: "easeOut" } },
+  exit: { opacity: 0, x: -40, transition: { duration: 1.1, ease: "easeIn" } },
 };
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-};
-
-
-
+// ─── FAQ Accordion Component ──────────────────────────────────
 const FAQAccordion = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -1423,16 +1550,16 @@ const FAQAccordion = () => {
             </span>
             <ChevronDown
               className={`w-7 h-7 md:w-8 md:h-8 text-red-400 flex-shrink-0 transition-transform duration-400 ${
-                openIndex === index ? 'rotate-180 scale-110' : 'scale-100'
+                openIndex === index ? "rotate-180 scale-110" : "scale-100"
               }`}
             />
           </button>
 
           <motion.div
             initial={false}
-            animate={{ 
-              height: openIndex === index ? 'auto' : 0,
-              opacity: openIndex === index ? 1 : 0 
+            animate={{
+              height: openIndex === index ? "auto" : 0,
+              opacity: openIndex === index ? 1 : 0,
             }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="overflow-hidden"
@@ -1442,12 +1569,104 @@ const FAQAccordion = () => {
             </div>
           </motion.div>
         </div>
-
-        
       ))}
     </div>
   );
 };
+
+export default function About() {
+  const navigate = useNavigate();
+
+  const particlesInit = useCallback(async (engine) => {
+    await loadSlim(engine);
+  }, []);
+
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+    category: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  // Scroll to top button visibility
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Team image carousel
+  const teamImages = [OurTeam2, OurTeam3];
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveImageIndex((prev) => (prev + 1) % teamImages.length);
+    }, 4800);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Testimonial auto-rotate
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveTestimonial((prev) => (prev + 1) % 3);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Scroll to top button logic
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    setSuccess(false);
+
+    try {
+      await axios.post("http://localhost:8000/query/create", formData);
+
+      setSuccess(true);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+        category: "",
+      });
+
+      setTimeout(() => {
+        setIsModalOpen(false);
+        setSuccess(false);
+      }, 2000);
+    } catch (err) {
+      setError(err.message || "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const testimonials = [
     {
       text: "The website exceeded our expectations. The design is clean, professional, and helped us get more leads. Highly recommended!”",
@@ -1483,7 +1702,7 @@ const FAQAccordion = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-900/10 rounded-full blur-3xl" />
       </div>
 
-      {/* HERO SECTION */}
+      {/* ─── HERO SECTION ───────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
         <div className="absolute inset-0 z-0">
           <Canvas>
@@ -1719,7 +1938,7 @@ const FAQAccordion = () => {
         </motion.div>
       </section>
 
-      {/* ==================== ABOUT / STATS / TESTIMONIALS SECTION ==================== */}
+      {/* ─── ABOUT / STATS / TESTIMONIALS ──────────────────────────────── */}
       <section className="relative py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -1735,7 +1954,7 @@ const FAQAccordion = () => {
             </p>
           </motion.div>
 
-          {/* Improved 3D decoration under ABOUT heading */}
+          {/* 3D decoration */}
           <div className="relative h-96 mb-12 rounded-2xl overflow-hidden border border-red-900/20">
             <Canvas>
               <Suspense fallback={null}>
@@ -1744,7 +1963,7 @@ const FAQAccordion = () => {
             </Canvas>
           </div>
 
-          {/* About content */}
+          {/* About + Team Carousel */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -1752,13 +1971,7 @@ const FAQAccordion = () => {
             variants={staggerContainer}
             className="grid md:grid-cols-2 gap-8 items-center mb-12"
           >
-            <motion.div
-              variants={fadeInLeft}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
+            <motion.div variants={fadeInLeft} className="space-y-6">
               <h5 className="text-red-400 font-semibold text-xl">
                 About Our Solution
               </h5>
@@ -1794,14 +2007,9 @@ const FAQAccordion = () => {
               </button>
             </motion.div>
 
-            {/* ──────────────────────────────────────────────── */}
-            {/*               CAROUSEL WITH TWO IMAGES             */}
-            {/* ──────────────────────────────────────────────── */}
+            {/* Team Image Carousel */}
             <motion.div
-              variants={fadeInLeft}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              variants={fadeInRight}
               className="relative rounded-2xl shadow-2xl overflow-hidden border border-red-900/30 aspect-[4/3] md:aspect-[5/4] lg:aspect-[3/2]"
             >
               <AnimatePresence initial={false} mode="wait">
@@ -1817,7 +2025,6 @@ const FAQAccordion = () => {
                 />
               </AnimatePresence>
 
-              {/* Optional navigation dots */}
               <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2.5 z-10">
                 {teamImages.map((_, idx) => (
                   <button
@@ -1891,12 +2098,11 @@ const FAQAccordion = () => {
             })}
           </motion.div>
 
-          {/* Mobile Onboarding */}
           <div className="mb-12">
             <MobileOnboarding />
           </div>
 
-          {/* ==================== LEADERSHIP SECTION ==================== */}
+          {/* Leadership Section */}
           <section className="relative py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-950">
             <div className="max-w-7xl mx-auto">
               <motion.div
@@ -1976,7 +2182,8 @@ const FAQAccordion = () => {
                   </div>
                 </motion.div>
 
-                {/* Managing Director */}
+
+
                 <motion.div
                   variants={scaleIn}
                   whileHover={{ scale: 1.05, y: -10 }}
@@ -2161,11 +2368,12 @@ const FAQAccordion = () => {
                     </div>
                   </div>
                 </motion.div>
+                
               </div>
             </div>
           </section>
 
-          {/* ==================== OUR TEAM SECTION ==================== */}
+          {/* Our Team Section */}
           <section className="py-16 px-5 sm:px-8">
             <div className="max-w-7xl mx-auto">
               <motion.div
@@ -2224,7 +2432,6 @@ const FAQAccordion = () => {
                   <p className="text-2xl italic text-gray-100">"{t.text}"</p>
                   <div>
                     <p className="font-bold">{t.author}</p>
-                    <p className="text-gray-500 text-sm">{t.role || ""}</p>
                   </div>
                 </motion.div>
               ))}
@@ -2246,58 +2453,79 @@ const FAQAccordion = () => {
             </div>
           </motion.div>
 
-
-           
-          
-                    <div className="relative z-10 max-w-6xl mx-auto">
-                      <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: "-80px" }}
-                        variants={staggerContainer}
-                      >
-                        <motion.h2
-                          variants={fadeInUp}
-                          className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center mb-6 md:mb-8 tracking-tight"
-                        >
-                          FREQUENTLY <span className="text-red-500">ASKED</span> QUESTIONS
-                        </motion.h2>
-          
-                        <motion.p
-                          variants={fadeInUp}
-                          className="text-lg sm:text-xl md:text-2xl text-gray-300 text-center mb-12 md:mb-16 font-light max-w-4xl mx-auto"
-                        >
-                          Got questions? We've got clear, straightforward answers.
-                        </motion.p>
-          
-                        <FAQAccordion />
-                      </motion.div>
-
-                       <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center py-16"
-          >
-            <h3 className="text-5xl md:text-6xl font-black mb-8 px-4">
-              Ready to build something{" "}
-              <span className="text-red-500">great</span> together?
-            </h3>
-            <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto px-4">
-              Let's turn your vision into reality. Our team is ready to start
-              today.
-            </p>
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="px-12 py-6 bg-gradient-to-r from-red-600 to-red-800 rounded-full text-2xl font-bold shadow-2xl hover:shadow-red-900/70 transition"
+          {/* FAQ + Final CTA */}
+          <div className="relative z-10 max-w-6xl mx-auto">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={staggerContainer}
             >
-              LET'S START THE CONVERSATION →
-            </button>
-          </motion.div>
-                    </div>
+              <motion.h2
+                variants={fadeInUp}
+                className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center mb-6 md:mb-8 tracking-tight"
+              >
+                FREQUENTLY <span className="text-red-500">ASKED</span> QUESTIONS
+              </motion.h2>
 
-          {/* Final CTA */}
-         
+              <motion.p
+                variants={fadeInUp}
+                className="text-lg sm:text-xl md:text-2xl text-gray-300 text-center mb-12 md:mb-16 font-light max-w-4xl mx-auto"
+              >
+                Got questions? We've got clear, straightforward answers.
+              </motion.p>
+
+              <FAQAccordion />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center py-16"
+            >
+              <h3 className="text-5xl md:text-6xl font-black mb-8 px-4">
+                Ready to build something{" "}
+                <span className="text-red-500">great</span> together?
+              </h3>
+              <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto px-4">
+                Let's turn your vision into reality. Our team is ready to start
+                today.
+              </p>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="px-12 py-6 bg-gradient-to-r from-red-600 to-red-800 rounded-full text-2xl font-bold shadow-2xl hover:shadow-red-900/70 transition"
+              >
+                LET'S START THE CONVERSATION →
+              </button>
+            </motion.div>
+          </div>
+
+          {/* Scroll to Top Button */}
+          <button
+            onClick={scrollToTop}
+            className={`fixed bottom-6 right-6 z-50 p-4 rounded-full bg-red-600 hover:bg-red-700 text-white shadow-lg shadow-red-900/50 transition-all duration-300 hover:scale-110 active:scale-95 ${
+              showScrollTop
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-16 pointer-events-none"
+            }`}
+            aria-label="Scroll back to top"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 10l7-7m0 0l7 7m-7-7v18"
+              />
+            </svg>
+          </button>
         </div>
       </section>
     </div>

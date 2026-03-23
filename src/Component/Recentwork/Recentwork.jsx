@@ -1,8 +1,7 @@
 
 
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { ArrowRight, ExternalLink } from "lucide-react";
-
 // Images (unchanged)
 import img1 from "../Mobile/img/newimage1.jpg";
 import img2 from "../Mobile/img/newimage4.jpg";
@@ -84,12 +83,28 @@ const allCategories = ["All", ...new Set(portfolioItems.flatMap((item) => item.c
 
 export default function RecentWork() {
   const [activeFilter, setActiveFilter] = useState("All");
-
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const filteredItems = useMemo(() => {
     if (activeFilter === "All") return portfolioItems;
     return portfolioItems.filter((item) => item.categories.includes(activeFilter));
   }, [activeFilter]);
 
+
+   useEffect(() => {
+      const handleScroll = () => {
+        setShowScrollTop(window.scrollY > 400);
+      };
+  
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+  
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    };
   return (
     <div className="min-h-screen bg-black text-white relative overflow-x-hidden">
       {/* Simple static background gradient – no animation */}
@@ -223,6 +238,31 @@ export default function RecentWork() {
           </a>
         </div>
       </div>
+
+         <button
+            onClick={scrollToTop}
+            className={`fixed bottom-6 right-6 z-50 p-4 rounded-full bg-red-600 hover:bg-red-700 text-white shadow-lg shadow-red-900/50 transition-all duration-300 hover:scale-110 active:scale-95 ${
+              showScrollTop
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-16 pointer-events-none"
+            }`}
+            aria-label="Scroll back to top"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 10l7-7m0 0l7 7m-7-7v18"
+              />
+            </svg>
+          </button>
     </div>
   );
 }

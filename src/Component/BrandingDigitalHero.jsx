@@ -135,6 +135,8 @@ export default function BrandingDigitalHero() {
           />
         </svg>
       </div>
+
+      
     </section>
   );
 }

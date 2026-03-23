@@ -1,68 +1,29 @@
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
+
+
+// import React, { useEffect } from "react";
+// import { useDispatch, useSelector } from "react-redux";
 // import { Newspaper, ExternalLink, Clock, Cpu, Zap, Globe } from "lucide-react";
 
+// import {
+//   fetchTechNews,
+//   setSelectedCategory,
+// } from "./techNewsSlice/techNewsSlice.js";
+
 // const TechNews = () => {
-//   const [newsItems, setNewsItems] = useState([]);
-//   const [selectedCategory, setSelectedCategory] = useState("All");
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
+//   const dispatch = useDispatch();
+
+//   const {
+//     items: newsItems,
+//     selectedCategory,
+//     status,
+//     error,
+//   } = useSelector((state) => state.techNews);
 
 //   useEffect(() => {
-//     const fetchTechNews = async () => {
-//       try {
-//         setLoading(true);
-//         setError(null);
-
-//         // Using axios — cleaner syntax, auto JSON, better errors
-//         const { data: result } = await axios.get("http://localhost:8000/tech");
-
-//         let items = result.data || [];
-
-//         if (!Array.isArray(items)) {
-//           items = [];
-//         }
-
-//         const formattedData = items.map((item, index) => ({
-//           id: item._id || `item-${index + 1}`,
-//           title: item.title || "Untitled",
-//           description: item.description || "No description available",
-//           date:
-//             item.updatedAt || item.createdAt
-//               ? new Date(item.updatedAt || item.createdAt).toLocaleDateString(
-//                   "en-US",
-//                   {
-//                     month: "short",
-//                     day: "numeric",
-//                     year: "numeric",
-//                   },
-//                 )
-//               : new Date().toLocaleDateString("en-US", {
-//                   month: "short",
-//                   day: "numeric",
-//                   year: "numeric",
-//                 }),
-//           category: item.category?.name || "General",
-//           link: item.link || item.url || "#",
-//           image: item.images && item.images.length > 0 ? item.images[0] : null,
-//         }));
-
-//         setNewsItems(formattedData);
-//       } catch (err) {
-//         console.error("Error fetching tech news:", err);
-//         // Axios gives nice error messages
-//         setError(
-//           err.response?.data?.message ||
-//             err.message ||
-//             "Failed to load news. Please try again later.",
-//         );
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchTechNews();
-//   }, []);
+//     if (status === "idle") {
+//       dispatch(fetchTechNews());
+//     }
+//   }, [status, dispatch]);
 
 //   const categories = [
 //     "All",
@@ -88,7 +49,7 @@
 //     return <Globe className="w-5 h-5" />;
 //   };
 
-//   if (loading) {
+//   if (status === "loading") {
 //     return (
 //       <div className="min-h-screen bg-black text-gray-100 flex flex-col items-center justify-center p-6">
 //         <div className="relative w-24 h-24">
@@ -113,10 +74,12 @@
 //     );
 //   }
 
-//   if (error) {
+//   if (status === "failed") {
 //     return (
 //       <div className="min-h-screen bg-black text-gray-100 flex items-center justify-center p-6">
-//         <div className="text-xl text-red-500">{error}</div>
+//         <div className="text-xl text-red-500">
+//           {error || "Something went wrong"}
+//         </div>
 //       </div>
 //     );
 //   }
@@ -137,7 +100,7 @@
 //           {categories.map((category) => (
 //             <button
 //               key={category}
-//               onClick={() => setSelectedCategory(category)}
+//               onClick={() => dispatch(setSelectedCategory(category))}
 //               className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
 //                 selectedCategory === category
 //                   ? "bg-red-600 text-white shadow-lg shadow-red-900/40"
@@ -177,7 +140,7 @@
 //                   <img
 //                     src={item.image}
 //                     alt={item.title}
-//                     loading="lazy" // ← added: better perf for images
+//                     loading="lazy"
 //                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
 //                   />
 //                 </div>
@@ -217,9 +180,10 @@
 
 // export default TechNews;
 
-import React, { useEffect } from "react";
+
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Newspaper, ExternalLink, Clock, Cpu, Zap, Globe } from "lucide-react";
+import { Newspaper, ExternalLink, Clock, Cpu, Zap, Globe, ArrowUp } from "lucide-react";
 
 import {
   fetchTechNews,
@@ -236,11 +200,30 @@ const TechNews = () => {
     error,
   } = useSelector((state) => state.techNews);
 
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
   useEffect(() => {
     if (status === "idle") {
       dispatch(fetchTechNews());
     }
   }, [status, dispatch]);
+
+  // Scroll to top visibility logic
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   const categories = [
     "All",
@@ -302,7 +285,7 @@ const TechNews = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black text-gray-100 p-6 md:p-10">
+    <div className="min-h-screen bg-black text-gray-100 p-6 md:p-10 relative">
       <div className="max-w-5xl mx-auto">
         <div className="flex items-center justify-between mb-10">
           <div className="flex items-center gap-3">
@@ -391,6 +374,19 @@ const TechNews = () => {
           </div>
         )}
       </div>
+
+      {/* Scroll to Top Button */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-6 right-6 z-50 p-4 rounded-full bg-red-600 hover:bg-red-700 text-white shadow-lg shadow-red-900/50 transition-all duration-300 hover:scale-110 active:scale-95 ${
+          showScrollTop
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-16 pointer-events-none"
+        }`}
+        aria-label="Scroll to top"
+      >
+        <ArrowUp className="w-6 h-6" />
+      </button>
     </div>
   );
 };

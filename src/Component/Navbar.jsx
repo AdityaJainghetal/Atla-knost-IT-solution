@@ -59,14 +59,11 @@ const navItems = [
         path: "/graphics" ,
          hasDropdown: true,
         dropdownItems: [
-          { name: "UI/UX Design", path: "/seo" },
-          { name: "Web Design", path: "/seo" },
-          { name: "Ecommerce Design", path: "/seo" },
-          { name: "Mobile App Design", path: "/seo" },
-          { name: "Branding", path: "/seo" },
-          { name: "Custom CRM Software", path: "/seo" },
-          { name: "Cloud Services", path: "/seo" },
-          { name: "AI & Machine Learning", path: "/seo" },
+          { name: "UI/UX Design", path: "/uidesign" },
+          { name: "Web Design & Development", path: "/websitedesigndevelopment" },
+      
+          { name: "Branding", path: "/contentwritingbranding" },
+         
         ],
       },
     ],

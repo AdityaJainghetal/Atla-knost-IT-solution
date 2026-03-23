@@ -1,10 +1,27 @@
-// src/pages/CareerPage.jsx
-import React from 'react';
+
+import React, { useEffect, useState } from 'react';
 
 function CareerPage() {
-  return (
-    <div className="min-h-screen bg-black text-white">
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  return (
+    <div className="min-h-screen bg-black text-white relative">
       {/* Hero Section */}
       <section className="relative pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-red-950/30 via-black to-black pointer-events-none"></div>
@@ -73,7 +90,6 @@ function CareerPage() {
 
           <div className="space-y-6">
             {[
-            
               {
                 role: "Product Designer (UI/UX)",
                 location: "Remote",
@@ -109,8 +125,6 @@ function CareerPage() {
               </div>
             ))}
           </div>
-
-          
         </div>
       </section>
 
@@ -132,6 +146,31 @@ function CareerPage() {
         </div>
       </section>
 
+      {/* Scroll to Top Button */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-6 right-6 z-50 p-4 rounded-full bg-red-600 hover:bg-red-700 text-white shadow-lg shadow-red-900/50 transition-all duration-300 hover:scale-110 active:scale-95 ${
+          showScrollTop
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-16 pointer-events-none"
+        }`}
+        aria-label="Scroll back to top"
+      >
+        <svg 
+          className="w-6 h-6" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24" 
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            strokeWidth={2} 
+            d="M5 10l7-7m0 0l7 7m-7-7v18" 
+          />
+        </svg>
+      </button>
     </div>
   );
 }

@@ -43,13 +43,13 @@ import UiUxDesign from "./Component/Design/UiUxDesign";
 import PrivacyPolicy from "./Component/PrivacyPolicy/PrivacyPolicy";
 import CookiePolicy from "./Component/CookiePolicy/CookiePolicy";
 import TermsOfService from "./Component/TermsOfService/TermsOfService";
-import ScrollToTop from "./Component/ScrollToTop";
+// import ScrollToTop from "./Component/ScrollToTop";
 
 const App = () => {
   return (
     <HelmetProvider>
       <BrowserRouter>
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
         {/* <Helmet>
           <link rel="canonical" href="https://www.atlaknots.com/" />
           <title>AtlaKnots - Digital Solutions</title>

@@ -96,11 +96,11 @@ export default function Navbar() {
           {/* LOGO */}
           <NavLink to="/" onClick={closeAll}>
             {/* <img src={ATLAknots} alt="Logo" className="h-12 object-contain" /> */}
-            <img
-              src={ATLAknots}
-              alt="ATLAKnots Logo"
-              className="h-60 w-12 md:h-16 md:w-46 lg:h-37 mt-5 lg:w-50 object-contain"
-            />
+          <img
+  src={ATLAknots}
+  alt="ATLAKnots Logo"
+  className="h-12 w-auto md:h-12 lg:h-18 object-contain"
+/>
           </NavLink>
 
           {/* DESKTOP MENU */}

@@ -40,6 +40,9 @@ import SocialMediaMarketing from "./Component/SoftwareDevelopment/SocialMediaMar
 import ContentWritingBranding from "./Component/Design/ContentWritingBranding";
 import WebsiteDesignDevelopment from "./Component/Design/WebsiteDesignDevelopment";
 import UiUxDesign from "./Component/Design/UiUxDesign";
+import PrivacyPolicy from "./Component/PrivacyPolicy/PrivacyPolicy";
+import CookiePolicy from "./Component/CookiePolicy/CookiePolicy";
+import TermsOfService from "./Component/TermsOfService/TermsOfService";
 
 const App = () => {
   return (
@@ -102,7 +105,32 @@ const App = () => {
               path="websitedesigndevelopment"
               element={<WebsiteDesignDevelopment />}
             />
+
+             <Route
+              path="privacypolicy"
+              element={<PrivacyPolicy />}
+            />
+
+             <Route
+              path="cookiepolicy"
+              element={<CookiePolicy />}
+            />
+
+            
+             <Route
+              path="termsofservice"
+              element={<TermsOfService />}
+            />
+
+
+            
           </Route>
+
+
+              
+       
+
+          
         </Routes>
       </BrowserRouter>
 

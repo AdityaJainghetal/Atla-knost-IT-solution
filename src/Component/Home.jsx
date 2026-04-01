@@ -695,6 +695,8 @@ export default function Home() {
         />
       </div>
 
+      
+
 
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute top-20 right-0 w-96 h-96 bg-red-600/20 rounded-full blur-3xl animate-pulse" />

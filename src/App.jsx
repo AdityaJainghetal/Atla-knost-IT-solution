@@ -43,18 +43,19 @@ import UiUxDesign from "./Component/Design/UiUxDesign";
 import PrivacyPolicy from "./Component/PrivacyPolicy/PrivacyPolicy";
 import CookiePolicy from "./Component/CookiePolicy/CookiePolicy";
 import TermsOfService from "./Component/TermsOfService/TermsOfService";
+import ScrollToTop from "./Component/ScrollToTop/ScrollToTop";
 // import ScrollToTop from "./Component/ScrollToTop";
 
 const App = () => {
   return (
     <HelmetProvider>
       <BrowserRouter>
-      {/* <ScrollToTop /> */}
+        {/* <ScrollToTop /> */}
         {/* <Helmet>
           <link rel="canonical" href="https://www.atlaknots.com/" />
           <title>AtlaKnots - Digital Solutions</title>
         </Helmet> */}
-
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
@@ -108,31 +109,12 @@ const App = () => {
               element={<WebsiteDesignDevelopment />}
             />
 
-             <Route
-              path="privacypolicy"
-              element={<PrivacyPolicy />}
-            />
+            <Route path="privacypolicy" element={<PrivacyPolicy />} />
 
-             <Route
-              path="cookiepolicy"
-              element={<CookiePolicy />}
-            />
+            <Route path="cookiepolicy" element={<CookiePolicy />} />
 
-            
-             <Route
-              path="termsofservice"
-              element={<TermsOfService />}
-            />
-
-
-            
+            <Route path="termsofservice" element={<TermsOfService />} />
           </Route>
-
-
-              
-       
-
-          
         </Routes>
       </BrowserRouter>
 

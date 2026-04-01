@@ -1,40 +1,66 @@
 @import "tailwindcss";
 
-  @keyframes slow-zoom {
-          0% { transform: scale(1.05); }
-          50% { transform: scale(1.12); }
-          100% { transform: scale(1.05); }
-        }
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 0.4; }
-          50% { opacity: 0.7; }
-        }
-        @keyframes gradient {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        .animate-slow-zoom { animation: slow-zoom 18s ease-in-out infinite; }
-        .animate-pulse-slow { animation: pulse-slow 12s ease-in-out infinite; }
-        .animate-gradient { background-size: 200% 200%; animation: gradient 12s ease infinite; }
-        .delay-1000 { animation-delay: 1s; }
+@keyframes slow-zoom {
+  0% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.animate-slow-zoom {
+  animation: slow-zoom 18s ease-in-out infinite;
+}
+.animate-pulse-slow {
+  animation: pulse-slow 12s ease-in-out infinite;
+}
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 12s ease infinite;
+}
+.delay-1000 {
+  animation-delay: 1s;
+}
 
-         @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-        .animate-fadeInUp {
-          animation: fadeInUp 0.6s ease-out forwards;
-        }
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
 
-        @layer utilities {
+@layer utilities {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
@@ -44,7 +70,8 @@
   }
 }
 @layer base {
-  html, body {
+  html,
+  body {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
@@ -64,12 +91,13 @@
 
 /* Hide scrollbar for IE, Edge and Firefox */
 * {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 /* Ensure scroll functionality remains */
-html, body {
+html,
+body {
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -87,31 +115,81 @@ body {
   color: #fff;
 }
 
+.alt-mode {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+.alt-mode * {
+  color: inherit !important;
+}
 
-  @keyframes scaleIn {
-    from {
-      transform: scale(0.8);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
+.alt-mode [class*="bg-black"],
+.alt-mode [class*="bg-zinc-900"],
+.alt-mode [class*="bg-zinc-950"],
+.alt-mode [class*="bg-slate-900"],
+.alt-mode [class*="bg-gray-900"],
+.alt-mode [class*="bg-gray-800"] {
+  background-color: #ffffff !important;
+  border-color: #e5e7eb !important;
+}
 
-  .animate-fadeIn {
-    animation: fadeIn 0.3s ease-out;
-  }
+.alt-mode [class*="text-white"],
+.alt-mode [class*="text-zinc-100"],
+.alt-mode [class*="text-gray-100"],
+.alt-mode [class*="text-gray-200"] {
+  color: #000000 !important;
+}
 
-  .animate-scaleIn {
-    animation: scaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+.alt-mode [class*="text-red-"],
+.alt-mode [class*="hover:text-red-"] {
+  color: #3b82f6 !important;
+}
+
+.alt-mode [class*="bg-red-"] {
+  background-color: #1d4ed8 !important;
+}
+
+.alt-mode [class*="border-red-"] {
+  border-color: #2563eb !important;
+}
+
+.alt-mode [class*="hover:bg-red-"]:hover {
+  background-color: #1e40af !important;
+}
+
+.alt-mode [class*="hover:border-red-"]:hover {
+  border-color: #1d4ed8 !important;
+}
+
+.alt-mode [class*="hover:text-red-"]:hover {
+  color: #60a5fa !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
